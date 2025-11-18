@@ -6,19 +6,19 @@ import { MarketingIcon } from '../constants/icons';
 const MarketingPillar: React.FC<{ title: string, description: string, services: { title: string, description: string }[] }> = ({ title, description, services }) => (
     <div className="mt-16">
         <div className="max-w-3xl">
-            <h3 className="text-3xl font-bold">{title}</h3>
-            <p className="mt-4 text-lg text-gray-400">{description}</p>
+            <h3 className="text-3xl font-bold text-gray-900">{title}</h3>
+            <p className="mt-4 text-lg text-gray-600">{description}</p>
         </div>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map(service => (
-                <div key={service.title} className="bg-[#151C2C]/60 p-6 rounded-xl border border-gray-700 hover:bg-[#1f2937] transition-colors duration-300">
+                <div key={service.title} className="bg-white p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-shadow duration-300">
                      <div className="flex items-center space-x-3">
-                         <div className="bg-blue-600/20 p-2 rounded-full">
-                            <MarketingIcon className="h-5 w-5 text-blue-400" />
+                         <div className="bg-blue-100 p-2 rounded-full">
+                            <MarketingIcon className="h-5 w-5 text-blue-500" />
                          </div>
-                        <h4 className="text-xl font-semibold">{service.title}</h4>
+                        <h4 className="text-xl font-semibold text-gray-900">{service.title}</h4>
                      </div>
-                    <p className="mt-3 text-gray-400">{service.description}</p>
+                    <p className="mt-3 text-gray-600">{service.description}</p>
                 </div>
             ))}
         </div>
@@ -27,22 +27,22 @@ const MarketingPillar: React.FC<{ title: string, description: string, services: 
 
 const MarketingServicesPage: React.FC = () => {
     return (
-        <div className="bg-[#0B101B] text-white">
+        <div className="bg-white text-gray-800">
             {/* Hero Section */}
             <section className="relative py-32 md:py-48 text-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/seed/marketingbg/1200/800')" }}>
-                <div className="absolute inset-0 bg-black/70"></div>
+                <div className="absolute inset-0 bg-gray-900/70"></div>
                 <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-5xl md:text-7xl font-extrabold">AI-Driven Marketing Services</h1>
-                    <p className="mt-4 text-xl md:text-2xl text-gray-300">Grow smarter with automated marketing workflows that turn insights into revenue.</p>
+                    <h1 className="text-5xl md:text-7xl font-extrabold text-white">AI-Driven Marketing Services</h1>
+                    <p className="mt-4 text-xl md:text-2xl text-gray-200">Grow smarter with automated marketing workflows that turn insights into revenue.</p>
                     <div className="mt-8">
-                        <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                        <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                             Schedule a Consultation
                         </Link>
                     </div>
                 </div>
             </section>
             
-            <section className="py-20 md:py-28">
+            <section className="py-20 md:py-28 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {marketingPillars.map(pillar => (
                         <MarketingPillar key={pillar.title} {...pillar} />
@@ -53,10 +53,10 @@ const MarketingServicesPage: React.FC = () => {
              {/* CTA Section */}
              <section className="py-20 text-center">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-extrabold text-white">Ready to Accelerate Your Growth?</h2>
-                    <p className="mt-4 text-xl text-gray-400">Let's discuss how our AI-driven marketing strategies can be tailored to meet your unique business goals.</p>
+                    <h2 className="text-4xl font-extrabold text-gray-900">Ready to Accelerate Your Growth?</h2>
+                    <p className="mt-4 text-xl text-gray-600">Let's discuss how our AI-driven marketing strategies can be tailored to meet your unique business goals.</p>
                     <div className="mt-8">
-                        <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                        <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                             Talk to a Marketing Agent
                         </Link>
                     </div>

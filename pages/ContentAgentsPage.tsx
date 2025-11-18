@@ -16,36 +16,36 @@ import {
 } from '../constants/icons';
 
 const TabButton: React.FC<{ active: boolean, onClick: () => void, children: React.ReactNode }> = ({ active, onClick, children }) => (
-    <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-600 text-white' : 'text-gray-400 hover:bg-gray-700'}`}>
+    <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
         {children}
     </button>
 );
 
 const FeatureCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
     <div className="flex items-start space-x-4">
-        <div className="bg-gray-700 p-3 rounded-lg flex-shrink-0">
-            <Icon className="h-6 w-6 text-blue-400" />
+        <div className="bg-gray-100 p-3 rounded-lg flex-shrink-0">
+            <Icon className="h-6 w-6 text-blue-500" />
         </div>
         <div>
-            <h4 className="font-semibold text-white">{title}</h4>
-            <p className="text-gray-400">{description}</p>
+            <h4 className="font-semibold text-gray-900">{title}</h4>
+            <p className="text-gray-600">{description}</p>
         </div>
     </div>
 );
 
 const BenefitItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <li className="flex items-start">
-        <CheckCircleIcon className="h-5 w-5 text-green-400 mr-3 mt-1 flex-shrink-0" />
-        <span className="text-gray-300">{children}</span>
+        <CheckCircleIcon className="h-5 w-5 text-green-500 mr-3 mt-1 flex-shrink-0" />
+        <span className="text-gray-600">{children}</span>
     </li>
 );
 
 const ProcessStep: React.FC<{ number: string, title: string, description: string }> = ({ number, title, description }) => (
      <div className="relative">
-        <div className="absolute -left-4 top-1 h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">{number}</div>
+        <div className="absolute -left-4 top-1 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">{number}</div>
         <div className="ml-8">
-            <h4 className="font-semibold text-white">{title}</h4>
-            <p className="text-gray-400">{description}</p>
+            <h4 className="font-semibold text-gray-900">{title}</h4>
+            <p className="text-gray-600">{description}</p>
         </div>
     </div>
 );
@@ -127,14 +127,14 @@ const ContentAgentsPage: React.FC = () => {
     const activeAgent = agentDetails[activeTab as keyof typeof agentDetails];
 
     return (
-        <div className="bg-[#0B101B] text-white">
-            <section className="py-20 md:py-32">
+        <div className="bg-white text-gray-800">
+            <section className="py-20 md:py-32 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Automate Your Content Lifecycle with Intelligent Agents</h1>
-                        <p className="mt-6 text-lg text-gray-300">From brand consistency to catalog management, our agents handle the heavy lifting so you can focus on growth.</p>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Automate Your Content Lifecycle with Intelligent Agents</h1>
+                        <p className="mt-6 text-lg text-gray-600">From brand consistency to catalog management, our agents handle the heavy lifting so you can focus on growth.</p>
                         <div className="mt-8">
-                            <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                            <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                                 Explore Agents
                             </Link>
                         </div>
@@ -145,11 +145,11 @@ const ContentAgentsPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20 bg-[#101622]">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold">What are Content Agents?</h2>
-                        <p className="mt-4 text-gray-400">A brief overview of what the Content Agents service is, its core purpose, and the problems it solves for modern businesses.</p>
+                        <p className="mt-4 text-gray-600">A brief overview of what the Content Agents service is, its core purpose, and the problems it solves for modern businesses.</p>
                     </div>
 
                     <div className="mt-12 flex justify-center space-x-2">
@@ -157,12 +157,12 @@ const ContentAgentsPage: React.FC = () => {
                     </div>
                     
                     <div className="mt-16">
-                        <h3 className="text-2xl font-bold text-center mb-12">Agent Purpose: {activeAgent.purpose}</h3>
+                        <h3 className="text-2xl font-bold text-center mb-12 text-gray-900">Agent Purpose: {activeAgent.purpose}</h3>
                         <div className="grid md:grid-cols-2 gap-16 items-start">
                              <div className="space-y-6">
-                                <p className="text-gray-300">{activeAgent.description}</p>
+                                <p className="text-gray-600">{activeAgent.description}</p>
                                 
-                                <h4 className="text-xl font-semibold pt-4">What Tasks It Handles</h4>
+                                <h4 className="text-xl font-semibold pt-4 text-gray-900">What Tasks It Handles</h4>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     {activeAgent.tasks.map(task => (
                                         <FeatureCard key={task.title} icon={task.icon} title={task.title} description={task.description} />
@@ -170,13 +170,13 @@ const ContentAgentsPage: React.FC = () => {
                                 </div>
                             </div>
 
-                            <div className="bg-[#1A202C] p-8 rounded-lg space-y-6">
+                            <div className="bg-gray-50 p-8 rounded-lg space-y-6 border border-gray-200">
                                 <div>
-                                    <h4 className="font-semibold text-white">Who It's For</h4>
-                                    <p className="text-gray-400 mt-2">{activeAgent.whoFor}</p>
+                                    <h4 className="font-semibold text-gray-900">Who It's For</h4>
+                                    <p className="text-gray-600 mt-2">{activeAgent.whoFor}</p>
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-white">Key Benefits</h4>
+                                    <h4 className="font-semibold text-gray-900">Key Benefits</h4>
                                     <ul className="mt-2 space-y-2">
                                         {activeAgent.benefits.map(benefit => (
                                             <BenefitItem key={benefit.strong}><b>{benefit.strong}</b> {benefit.text}</BenefitItem>
@@ -187,7 +187,7 @@ const ContentAgentsPage: React.FC = () => {
                         </div>
 
                         <div className="mt-20">
-                            <h3 className="text-2xl font-bold text-center">Process Flow</h3>
+                            <h3 className="text-2xl font-bold text-center text-gray-900">Process Flow</h3>
                             <div className="mt-12 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
                                 {activeAgent.process.map(step => (
                                      <ProcessStep key={step.number} number={step.number} title={step.title} description={step.description} />
@@ -198,12 +198,12 @@ const ContentAgentsPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20 text-center">
+            <section className="py-20 text-center bg-gray-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-extrabold text-white">Ready to Put Your Content on Autopilot?</h2>
-                    <p className="mt-4 text-xl text-gray-400">Our intelligent agents are ready to streamline your workflows, enforce brand consistency, and boost your content performance. Let's find the right solution for you.</p>
+                    <h2 className="text-4xl font-extrabold text-gray-900">Ready to Put Your Content on Autopilot?</h2>
+                    <p className="mt-4 text-xl text-gray-600">Our intelligent agents are ready to streamline your workflows, enforce brand consistency, and boost your content performance. Let's find the right solution for you.</p>
                     <div className="mt-8">
-                        <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                        <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                             Schedule a Free Consultation
                         </Link>
                     </div>

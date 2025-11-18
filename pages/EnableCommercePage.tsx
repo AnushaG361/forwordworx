@@ -5,12 +5,12 @@ import { ShoppingCartIcon, GlobeAltIcon, ServerStackIcon, LockClosedIcon, ChartP
 
 const FeatureCard: React.FC<{ icon: React.ElementType; title: string; description: string; }> = ({ icon: Icon, title, description }) => (
     <div className="flex items-start space-x-4">
-        <div className="bg-gray-700 p-3 rounded-lg flex-shrink-0">
-            <Icon className="h-6 w-6 text-blue-400" />
+        <div className="bg-blue-100 p-3 rounded-lg flex-shrink-0">
+            <Icon className="h-6 w-6 text-blue-500" />
         </div>
         <div>
-            <h4 className="font-semibold text-white">{title}</h4>
-            <p className="text-gray-400">{description}</p>
+            <h4 className="font-semibold text-gray-900">{title}</h4>
+            <p className="text-gray-600">{description}</p>
         </div>
     </div>
 );
@@ -18,15 +18,15 @@ const FeatureCard: React.FC<{ icon: React.ElementType; title: string; descriptio
 const AccordionItem: React.FC<{ title: string; children: React.ReactNode; }> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="border-b border-gray-700">
+        <div className="border-b border-gray-200">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex justify-between items-center py-4 text-left"
             >
-                <span className="font-semibold text-lg">{title}</span>
-                <ChevronDownIcon className={`h-6 w-6 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="font-semibold text-lg text-gray-900">{title}</span>
+                <ChevronDownIcon className={`h-6 w-6 transition-transform text-gray-500 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
-            {isOpen && <div className="pb-4 text-gray-400">{children}</div>}
+            {isOpen && <div className="pb-4 text-gray-600">{children}</div>}
         </div>
     );
 };
@@ -36,41 +36,41 @@ const EnableCommercePage: React.FC = () => {
     const modules = ['eCommerce Platforms', 'Payment Gateways', 'Inventory Management', 'Analytics'];
 
     return (
-        <div className="bg-[#0B101B] text-white flex">
-            <aside className="w-64 bg-[#101622] p-6 hidden lg:block">
+        <div className="bg-white text-gray-800 flex">
+            <aside className="w-64 bg-gray-50 p-6 hidden lg:block border-r border-gray-200">
                 <div className="flex items-center space-x-2 mb-8">
-                    <ShoppingCartIcon className="h-6 w-6 text-blue-400" />
-                    <h2 className="text-xl font-bold">Enable</h2>
+                    <ShoppingCartIcon className="h-6 w-6 text-blue-500" />
+                    <h2 className="text-xl font-bold text-gray-900">Enable</h2>
                 </div>
                 <nav className="space-y-4">
-                    <a href="#" className="flex items-center p-2 text-blue-400 bg-gray-700 rounded-md">Commerce</a>
-                    <a href="#" className="flex items-center p-2 text-gray-400 hover:bg-gray-700 rounded-md">Content</a>
-                    <a href="#" className="flex items-center p-2 text-gray-400 hover:bg-gray-700 rounded-md">Analytics</a>
-                    <a href="#" className="flex items-center p-2 text-gray-400 hover:bg-gray-700 rounded-md">Marketing</a>
+                    <a href="#" className="flex items-center p-2 text-blue-600 bg-blue-100 rounded-md font-semibold">Commerce</a>
+                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Content</a>
+                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Analytics</a>
+                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Marketing</a>
                 </nav>
-                <div className="mt-auto pt-8 border-t border-gray-700 absolute bottom-6 w-52">
-                    <a href="#" className="flex items-center p-2 text-gray-400 hover:bg-gray-700 rounded-md">Settings</a>
-                    <a href="#" className="flex items-center p-2 text-gray-400 hover:bg-gray-700 rounded-md">Help</a>
+                <div className="mt-auto pt-8 border-t border-gray-200 absolute bottom-6 w-52">
+                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Settings</a>
+                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Help</a>
                 </div>
             </aside>
 
             <div className="flex-1">
-                <header className="p-6 border-b border-gray-800 flex justify-between items-center">
-                    <h1 className="text-2xl font-bold">Commerce Solutions</h1>
+                <header className="p-6 border-b border-gray-200 flex justify-between items-center bg-white">
+                    <h1 className="text-2xl font-bold text-gray-900">Commerce Solutions</h1>
                     <div className="flex items-center space-x-4">
-                        <Link to="/contact" className="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-blue-700">Contact Sales</Link>
-                        <div className="w-10 h-10 bg-gray-700 rounded-full"></div>
+                        <Link to="/contact" className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-blue-600">Contact Sales</Link>
+                        <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
                     </div>
                 </header>
 
-                <main className="p-6 md:p-10">
+                <main className="p-6 md:p-10 bg-white">
                     <section className="grid md:grid-cols-2 gap-8 items-center">
                         <div>
-                            <h2 className="text-4xl font-extrabold">Unified Commerce, Seamlessly Delivered.</h2>
-                            <p className="mt-4 text-gray-400">Our integrated commerce solution helps you streamline operations, boost sales, and enhance customer experiences across all channels.</p>
+                            <h2 className="text-4xl font-extrabold text-gray-900">Unified Commerce, Seamlessly Delivered.</h2>
+                            <p className="mt-4 text-gray-600">Our integrated commerce solution helps you streamline operations, boost sales, and enhance customer experiences across all channels.</p>
                             <div className="mt-6 flex space-x-4">
-                                <Link to="/contact" className="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700">Request a Demo</Link>
-                                <Link to="/contact" className="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-600">Talk to an Expert</Link>
+                                <Link to="/contact" className="bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600">Request a Demo</Link>
+                                <Link to="/contact" className="bg-gray-100 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-200">Talk to an Expert</Link>
                             </div>
                         </div>
                         <div className="flex justify-center">
@@ -79,8 +79,8 @@ const EnableCommercePage: React.FC = () => {
                     </section>
 
                     <section className="py-20">
-                        <h3 className="text-2xl font-bold text-center">A Powerful, All-in-One Commerce Platform</h3>
-                        <p className="mt-2 text-gray-400 text-center max-w-2xl mx-auto">Enable → Commerce provides a comprehensive suite of tools to manage your digital storefront, from inventory and sales to customer engagement, solving critical business challenges with a unified approach.</p>
+                        <h3 className="text-2xl font-bold text-center text-gray-900">A Powerful, All-in-One Commerce Platform</h3>
+                        <p className="mt-2 text-gray-600 text-center max-w-2xl mx-auto">Enable → Commerce provides a comprehensive suite of tools to manage your digital storefront, from inventory and sales to customer engagement, solving critical business challenges with a unified approach.</p>
                         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
                             <FeatureCard icon={GlobeAltIcon} title="Global Reach" description="Expand your business to new markets with multi-currency and multi-language support." />
                             <FeatureCard icon={ServerStackIcon} title="Scalable Infrastructure" description="Our cloud-based platform grows with you, from your first sale to millions." />
@@ -90,20 +90,20 @@ const EnableCommercePage: React.FC = () => {
                     </section>
 
                     <section className="py-16">
-                        <h3 className="text-2xl font-bold text-center">Supported Modules</h3>
-                        <div className="mt-8 flex justify-center space-x-2 border-b border-gray-700">
-                            {modules.map(mod => <button key={mod} onClick={() => setActiveModule(mod)} className={`px-4 py-2 text-sm font-medium transition-colors ${activeModule === mod ? 'border-b-2 border-blue-500 text-white' : 'text-gray-400 hover:text-white'}`}>{mod}</button>)}
+                        <h3 className="text-2xl font-bold text-center text-gray-900">Supported Modules</h3>
+                        <div className="mt-8 flex justify-center space-x-2 border-b border-gray-200">
+                            {modules.map(mod => <button key={mod} onClick={() => setActiveModule(mod)} className={`px-4 py-2 text-sm font-medium transition-colors ${activeModule === mod ? 'border-b-2 border-blue-500 text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}>{mod}</button>)}
                         </div>
                         <div className="mt-8 flex justify-center items-center space-x-8 grayscale opacity-60">
-                            <div className="h-10 w-28 bg-gray-600 rounded"></div>
-                            <div className="h-10 w-28 bg-gray-600 rounded"></div>
-                            <div className="h-10 w-28 bg-gray-600 rounded"></div>
-                            <div className="h-10 w-28 bg-gray-600 rounded"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
                         </div>
                     </section>
                     
                     <section className="py-16">
-                        <h3 className="text-2xl font-bold text-center">Key Benefits</h3>
+                        <h3 className="text-2xl font-bold text-center text-gray-900">Key Benefits</h3>
                         <div className="mt-8 max-w-3xl mx-auto">
                             <AccordionItem title="Streamline Operations">Automate workflows, centralize inventory, and manage orders from a single dashboard. Reduce manual effort and increase operational efficiency across all your sales channels.</AccordionItem>
                             <AccordionItem title="Boost Sales">Increase conversion rates with optimized checkout experiences, personalized recommendations, and powerful marketing integrations. Turn browsers into buyers.</AccordionItem>
@@ -112,18 +112,18 @@ const EnableCommercePage: React.FC = () => {
                     </section>
                     
                     <section className="py-16">
-                         <p className="text-center text-gray-400 text-sm font-semibold tracking-wider uppercase">Trusted by Industry Leaders</p>
+                         <p className="text-center text-gray-500 text-sm font-semibold tracking-wider uppercase">Trusted by Industry Leaders</p>
                         <div className="mt-6 flex justify-center items-center space-x-8 md:space-x-12 grayscale opacity-60">
-                            <div className="h-8 w-24 bg-gray-600 rounded"></div><div className="h-8 w-24 bg-gray-600 rounded"></div><div className="h-8 w-24 bg-gray-600 rounded"></div><div className="h-8 w-24 bg-gray-600 rounded"></div><div className="h-8 w-24 bg-gray-600 rounded"></div><div className="h-8 w-24 bg-gray-600 rounded"></div>
+                            <div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div>
                         </div>
                     </section>
 
                     <section className="py-16">
-                        <div className="bg-blue-800/50 rounded-2xl p-12 text-center border border-blue-600">
-                            <h2 className="text-3xl font-extrabold text-white">Ready to Build Your Future Commerce Strategy?</h2>
-                            <p className="mt-4 text-lg text-blue-200">Let's build the future of your business together. Schedule a demo today to see Enable → Commerce in action.</p>
+                        <div className="bg-blue-50 rounded-2xl p-12 text-center border border-blue-200">
+                            <h2 className="text-3xl font-extrabold text-gray-900">Ready to Build Your Future Commerce Strategy?</h2>
+                            <p className="mt-4 text-lg text-blue-800">Let's build the future of your business together. Schedule a demo today to see Enable → Commerce in action.</p>
                             <div className="mt-8">
-                                <Link to="/contact" className="inline-block bg-white text-blue-800 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition-colors">Get Started</Link>
+                                <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-colors">Get Started</Link>
                             </div>
                         </div>
                     </section>

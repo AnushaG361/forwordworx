@@ -6,52 +6,52 @@ import { RocketLaunchIcon, BanknotesIcon, BadgeCheckIcon, ClockIcon, ShopifyIcon
 const AccordionItem: React.FC<{ title: string; children: React.ReactNode; }> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="border-b border-gray-700">
+        <div className="border-b border-gray-200">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full flex justify-between items-center py-4 text-left"
             >
-                <span className="font-semibold text-lg">{title}</span>
-                <ChevronDownIcon className={`h-6 w-6 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="font-semibold text-lg text-gray-900">{title}</span>
+                <ChevronDownIcon className={`h-6 w-6 transition-transform text-gray-500 ${isOpen ? 'rotate-180' : ''}`} />
             </button>
-            {isOpen && <div className="pb-4 pt-2 text-gray-400">{children}</div>}
+            {isOpen && <div className="pb-4 pt-2 text-gray-600">{children}</div>}
         </div>
     );
 };
 
 const BenefitCard: React.FC<{ icon: React.ElementType; title: string; description: string; }> = ({ icon: Icon, title, description }) => (
-    <div className="bg-[#1A202C] p-6 rounded-lg text-center border border-gray-700">
-        <Icon className="h-8 w-8 text-blue-400 mx-auto" />
-        <h3 className="mt-4 font-semibold text-white">{title}</h3>
-        <p className="mt-1 text-sm text-gray-400">{description}</p>
+    <div className="bg-white p-6 rounded-lg text-center border border-gray-200 shadow-md">
+        <Icon className="h-8 w-8 text-blue-500 mx-auto" />
+        <h3 className="mt-4 font-semibold text-gray-900">{title}</h3>
+        <p className="mt-1 text-sm text-gray-600">{description}</p>
     </div>
 );
 
 const UseCaseCard: React.FC<{ icon: React.ElementType; title: string; description: string; }> = ({ icon: Icon, title, description }) => (
-    <div className="bg-[#1A202C] p-6 rounded-lg border border-gray-700">
-        <Icon className="h-8 w-8 text-green-400 mb-4" />
-        <h3 className="font-semibold text-white">{title}</h3>
-        <p className="mt-1 text-gray-400">{description}</p>
+    <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+        <Icon className="h-8 w-8 text-green-500 mb-4" />
+        <h3 className="font-semibold text-gray-900">{title}</h3>
+        <p className="mt-1 text-gray-600">{description}</p>
     </div>
 );
 
 const EnableAgentsPage: React.FC = () => {
     return (
-        <div className="bg-[#0B101B] text-white">
-            <section className="py-20 md:py-32">
+        <div className="bg-white text-gray-800">
+            <section className="py-20 md:py-32 bg-gray-50">
                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav className="text-sm mb-8 text-gray-400">
-                        <Link to="/" className="hover:text-white">Home</Link> / 
-                        <Link to="/enable" className="hover:text-white"> Enable</Link> / 
-                        <span className="text-gray-500"> Agents</span>
+                    <nav className="text-sm mb-8 text-gray-500">
+                        <Link to="/" className="hover:text-gray-900">Home</Link> / 
+                        <Link to="/enable" className="hover:text-gray-900"> Enable</Link> / 
+                        <span className="text-gray-400"> Agents</span>
                     </nav>
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Enable: Agents</h1>
-                            <p className="mt-6 text-lg text-gray-300">Automate, Analyze, and Accelerate Your Workflows with Intelligent AI Agents.</p>
+                            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Enable: Agents</h1>
+                            <p className="mt-6 text-lg text-gray-600">Automate, Analyze, and Accelerate Your Workflows with Intelligent AI Agents.</p>
                             <div className="mt-8 flex space-x-4">
-                                <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-700">Request a Demo</Link>
-                                <Link to="/contact" className="inline-block bg-gray-700 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-gray-600">Learn More</Link>
+                                <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-600">Request a Demo</Link>
+                                <Link to="/contact" className="inline-block bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg text-base hover:bg-gray-300">Learn More</Link>
                             </div>
                         </div>
                         <div className="flex justify-center">
@@ -61,11 +61,11 @@ const EnableAgentsPage: React.FC = () => {
                  </div>
             </section>
             
-            <section className="py-20 bg-[#101622]">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold">What is Enable: Agents?</h2>
-                        <p className="mt-4 text-gray-400">An overview of the 'Agents' product, explaining its core purpose and the problem it solves for businesses. It empowers teams by automating complex tasks, analyzing vast datasets, and accelerating workflows through autonomous agents, allowing your organization to focus on strategic initiatives.</p>
+                        <p className="mt-4 text-gray-600">An overview of the 'Agents' product, explaining its core purpose and the problem it solves for businesses. It empowers teams by automating complex tasks, analyzing vast datasets, and accelerating workflows through autonomous agents, allowing your organization to focus on strategic initiatives.</p>
                     </div>
 
                     <div className="mt-12 max-w-3xl mx-auto">
@@ -77,7 +77,7 @@ const EnableAgentsPage: React.FC = () => {
                 </div>
             </section>
             
-            <section className="py-20">
+            <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <h3 className="text-2xl font-bold text-center">Key Benefits</h3>
                      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -89,7 +89,7 @@ const EnableAgentsPage: React.FC = () => {
                 </div>
             </section>
             
-            <section className="py-20 bg-[#101622]">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <h3 className="text-2xl font-bold text-center">Where It's Used</h3>
                      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -100,12 +100,12 @@ const EnableAgentsPage: React.FC = () => {
                 </div>
             </section>
             
-            <section className="py-20 text-center">
+            <section className="py-20 text-center bg-gray-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2 className="text-4xl font-extrabold text-white">See Agents in Action</h2>
-                    <p className="mt-4 text-xl text-gray-400">Discover how our intelligent agents can transform your business operations. Schedule a free consultation with our experts today.</p>
+                    <h2 className="text-4xl font-extrabold text-gray-900">See Agents in Action</h2>
+                    <p className="mt-4 text-xl text-gray-600">Discover how our intelligent agents can transform your business operations. Schedule a free consultation with our experts today.</p>
                     <div className="mt-8">
-                        <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700">Book a Consultation</Link>
+                        <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600">Book a Consultation</Link>
                     </div>
                 </div>
             </section>

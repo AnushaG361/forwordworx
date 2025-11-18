@@ -1,27 +1,27 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// Fix: Import `CheckCircleIcon` to resolve 'Cannot find name' errors.
 import { CloudIcon, ScalableIcon, IntegrationsIcon, InterfaceIcon, OnboardingIcon, ReviewsIcon, ReportsIcon, CheckCircleIcon } from '../constants/icons';
 
 const TabButton: React.FC<{ active: boolean, onClick: () => void, children: React.ReactNode }> = ({ active, onClick, children }) => (
-    <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-600 text-white' : 'text-gray-400 hover:bg-gray-700'}`}>
+    <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
         {children}
     </button>
 );
 
 const FeatureCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
     <div className="text-center p-6">
-        <Icon className="h-10 w-10 text-blue-400 mx-auto" />
-        <h3 className="mt-4 font-semibold text-white">{title}</h3>
-        <p className="mt-1 text-sm text-gray-400">{description}</p>
+        <Icon className="h-10 w-10 text-blue-500 mx-auto" />
+        <h3 className="mt-4 font-semibold text-gray-900">{title}</h3>
+        <p className="mt-1 text-sm text-gray-600">{description}</p>
     </div>
 );
 
 const UseCaseCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
-    <div className="bg-[#1A202C] p-6 rounded-lg border border-gray-700">
-        <Icon className="h-8 w-8 text-green-400" />
-        <h3 className="mt-4 font-semibold text-white">{title}</h3>
-        <p className="mt-1 text-gray-400">{description}</p>
+    <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-md">
+        <Icon className="h-8 w-8 text-green-500" />
+        <h3 className="mt-4 font-semibold text-gray-900">{title}</h3>
+        <p className="mt-1 text-gray-600">{description}</p>
     </div>
 );
 
@@ -30,20 +30,20 @@ const HcmSuitePage: React.FC = () => {
     const tabs = ['Payroll', 'HR Management', 'Recruitment'];
 
     return (
-        <div className="bg-[#0B101B] text-white">
-            <section className="py-20 md:py-32">
+        <div className="bg-white text-gray-800">
+            <section className="py-20 md:py-32 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav className="text-sm mb-8 text-gray-400">
-                        <Link to="/" className="hover:text-white">Home</Link> / 
-                        <Link to="/products" className="hover:text-white"> Products</Link> / 
-                        <span className="text-gray-500"> HCM Suite</span>
+                    <nav className="text-sm mb-8 text-gray-500">
+                        <Link to="/" className="hover:text-gray-900">Home</Link> / 
+                        <Link to="/products" className="hover:text-gray-900"> Products</Link> / 
+                        <span className="text-gray-400"> HCM Suite</span>
                     </nav>
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Streamline and Automate Your Human Capital Management</h1>
-                            <p className="mt-6 text-lg text-gray-300">The HCM Suite from Forwardworx integrates everything from payroll to performance reviews, freeing you to focus on your most valuable asset: your people.</p>
+                            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Streamline and Automate Your Human Capital Management</h1>
+                            <p className="mt-6 text-lg text-gray-600">The HCM Suite from Forwardworx integrates everything from payroll to performance reviews, freeing you to focus on your most valuable asset: your people.</p>
                             <div className="mt-8">
-                                <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                                <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                                     Request a Demo
                                 </Link>
                             </div>
@@ -55,12 +55,12 @@ const HcmSuitePage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20 bg-[#101622]">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
-                        <p className="font-semibold text-blue-400">CORE FEATURES</p>
-                        <h2 className="text-3xl font-bold mt-2">Everything You Need To Manage Your Workforce</h2>
-                        <p className="mt-4 text-gray-400">Our platform provides a comprehensive set of tools to streamline your HR processes, enhance employee engagement, and drive business growth.</p>
+                        <p className="font-semibold text-blue-600">CORE FEATURES</p>
+                        <h2 className="text-3xl font-bold mt-2 text-gray-900">Everything You Need To Manage Your Workforce</h2>
+                        <p className="mt-4 text-gray-600">Our platform provides a comprehensive set of tools to streamline your HR processes, enhance employee engagement, and drive business growth.</p>
                     </div>
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <FeatureCard icon={CloudIcon} title="Secure Cloud Platform" description="Access your critical HR data anytime, anywhere with our secure, cloud-based infrastructure." />
@@ -71,7 +71,7 @@ const HcmSuitePage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20">
+            <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h2 className="text-3xl font-bold">Key Modules</h2>
@@ -82,11 +82,11 @@ const HcmSuitePage: React.FC = () => {
                     <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
                         <div className="space-y-4">
                             <h3 className="text-2xl font-bold">Automated Payroll & Compensation</h3>
-                            <p className="text-gray-300">Say goodbye to manual payroll with our fully automated system. Ensure accuracy, compliance, and timeliness in every pay run. Manage salaries, bonuses, and benefits from a single, centralized dashboard.</p>
-                             <ul className="space-y-2 pt-2">
-                                <li className="flex items-center"><CheckCircleIcon className="h-5 w-5 text-green-400 mr-3" /> Automated tax calculations and filings.</li>
-                                <li className="flex items-center"><CheckCircleIcon className="h-5 w-5 text-green-400 mr-3" /> Direct deposit and flexible payment options.</li>
-                                <li className="flex items-center"><CheckCircleIcon className="h-5 w-5 text-green-400 mr-3" /> Comprehensive reporting and analytics.</li>
+                            <p className="text-gray-600">Say goodbye to manual payroll with our fully automated system. Ensure accuracy, compliance, and timeliness in every pay run. Manage salaries, bonuses, and benefits from a single, centralized dashboard.</p>
+                             <ul className="space-y-2 pt-2 text-gray-600">
+                                <li className="flex items-center"><CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" /> Automated tax calculations and filings.</li>
+                                <li className="flex items-center"><CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" /> Direct deposit and flexible payment options.</li>
+                                <li className="flex items-center"><CheckCircleIcon className="h-5 w-5 text-green-500 mr-3" /> Comprehensive reporting and analytics.</li>
                              </ul>
                         </div>
                         <div className="flex justify-center">
@@ -96,11 +96,11 @@ const HcmSuitePage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20 bg-[#101622]">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold">Powerful Use Cases for Every Business</h2>
-                        <p className="mt-4 text-gray-400">Discover how our HCM suite can optimize your HR functions, saving you time and improving employee satisfaction.</p>
+                        <p className="mt-4 text-gray-600">Discover how our HCM suite can optimize your HR functions, saving you time and improving employee satisfaction.</p>
                     </div>
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
                         <UseCaseCard icon={OnboardingIcon} title="Automate Employee Onboarding" description="Create a seamless and welcoming experience for new hires with automated workflows for paperwork, training, and introductions." />
@@ -110,9 +110,9 @@ const HcmSuitePage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20">
+            <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-blue-600 rounded-2xl p-12 text-center">
+                    <div className="bg-blue-500 rounded-2xl p-12 text-center">
                         <h2 className="text-4xl font-extrabold text-white">Ready to Transform Your HR?</h2>
                         <p className="mt-4 text-xl text-blue-100">See first-hand how the Forwardworx HCM Suite can streamline your operations and empower your team. Schedule a personalized demo with one of our product experts today.</p>
                         <div className="mt-8">

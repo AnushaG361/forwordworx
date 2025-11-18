@@ -1,23 +1,24 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CameraIcon, BrushIcon, VideoIcon, BrandIcon, AiIcon, VirtualIcon } from '../constants/icons';
 
 const CreativeServiceDetailCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
-    <div className="bg-[#151C2C]/60 p-6 rounded-xl border border-gray-700 hover:bg-[#1f2937] transition-colors duration-300">
+    <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
         <div className="flex items-center space-x-4">
-            <div className="bg-blue-600/20 p-2 rounded-lg">
-                <Icon className="h-6 w-6 text-blue-400" />
+            <div className="bg-blue-100 p-2 rounded-lg">
+                <Icon className="h-6 w-6 text-blue-500" />
             </div>
-            <h3 className="text-xl font-bold">{title}</h3>
+            <h3 className="text-xl font-bold text-gray-900">{title}</h3>
         </div>
-        <p className="mt-3 text-gray-400">{description}</p>
+        <p className="mt-3 text-gray-600">{description}</p>
     </div>
 );
 
 const GalleryItem: React.FC<{ image: string, title: string }> = ({ image, title }) => (
     <div className="relative group overflow-hidden rounded-lg">
         <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end p-4">
+        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end p-4">
             <h4 className="text-white text-lg font-semibold">{title}</h4>
         </div>
     </div>
@@ -25,15 +26,15 @@ const GalleryItem: React.FC<{ image: string, title: string }> = ({ image, title 
 
 const CreativeServicesPage: React.FC = () => {
     return (
-        <div className="bg-[#0B101B] text-white">
+        <div className="bg-white text-gray-800">
             {/* Hero Section */}
             <section className="relative py-32 md:py-48 text-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/seed/abstractwave/1200/800')" }}>
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-gray-900/60"></div>
                 <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-5xl md:text-7xl font-extrabold">AI-Powered Creative Services</h1>
-                    <p className="mt-4 text-xl md:text-2xl text-gray-300">Content creation at scale — fast, precise, on-brand.</p>
+                    <h1 className="text-5xl md:text-7xl font-extrabold text-white">AI-Powered Creative Services</h1>
+                    <p className="mt-4 text-xl md:text-2xl text-gray-200">Content creation at scale — fast, precise, on-brand.</p>
                     <div className="mt-8">
-                        <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-700 transition-transform transform hover:scale-105">
+                        <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                             Book Creative Consultation
                         </Link>
                     </div>
@@ -41,10 +42,10 @@ const CreativeServicesPage: React.FC = () => {
             </section>
 
             {/* Creative Process Section */}
-            <section className="py-20 md:py-28">
+            <section className="py-20 md:py-28 bg-gray-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-4xl font-bold">Leveraging AI to Augment and Accelerate Your Creative Process</h2>
-                    <p className="mt-6 text-lg text-gray-400 leading-relaxed">
+                    <h2 className="text-4xl font-bold text-gray-900">Leveraging AI to Augment and Accelerate Your Creative Process</h2>
+                    <p className="mt-6 text-lg text-gray-600 leading-relaxed">
                         At Forwardworx, we integrate cutting-edge artificial intelligence to revolutionize your creative workflow. From initial concept to final execution, our AI-powered services deliver unparalleled speed, precision, and brand consistency, allowing you to scale your content creation efforts effortlessly.
                     </p>
                 </div>
@@ -58,7 +59,7 @@ const CreativeServicesPage: React.FC = () => {
             </section>
             
             {/* Gallery Section */}
-            <section className="pb-20 md:pb-28">
+            <section className="py-20 md:py-28">
                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                         {galleryItems.map(item => (
@@ -69,9 +70,9 @@ const CreativeServicesPage: React.FC = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20">
+            <section className="py-20 bg-gray-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-blue-600 rounded-2xl p-12 text-center">
+                    <div className="bg-blue-500 rounded-2xl p-12 text-center">
                         <h2 className="text-4xl font-extrabold text-white">Ready to Scale Your Creative Output?</h2>
                         <p className="mt-4 text-xl text-blue-100">Let's discuss how our AI-powered services can be tailored to meet your content strategy and drive growth.</p>
                         <div className="mt-8">

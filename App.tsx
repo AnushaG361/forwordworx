@@ -26,16 +26,14 @@ import SeoSubscriptionPage from './pages/SeoSubscriptionPage';
 
 const Layout: React.FC = () => {
     const location = useLocation();
-    
-    const lightThemePaths = ['/', '/services', '/agents', '/enable', '/products', '/enable/automation', '/about', '/contact'];
-    const isDarkTheme = !lightThemePaths.includes(location.pathname);
+    const isDarkTheme = false; // Force light theme everywhere
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
     return (
-        <div className={isDarkTheme ? 'bg-[#0B101B] text-white' : 'bg-white text-gray-800'}>
+        <div className={'bg-white text-gray-800'}>
             <Header darkTheme={isDarkTheme} />
             <main>
                 <Outlet />

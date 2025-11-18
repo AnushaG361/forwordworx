@@ -4,25 +4,25 @@ import { Link } from 'react-router-dom';
 import { ClockIcon, DollarIcon, ChartBarIcon } from '../constants/icons';
 
 const TabButton: React.FC<{ active: boolean, onClick: () => void, children: React.ReactNode }> = ({ active, onClick, children }) => (
-    <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-600 text-white' : 'text-gray-400 hover:bg-gray-700'}`}>
+    <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
         {children}
     </button>
 );
 
 const FeatureCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
-    <div className="bg-[#1A202C] p-6 rounded-lg text-center border border-gray-700">
-        <Icon className="h-8 w-8 text-blue-400 mx-auto" />
-        <h3 className="mt-4 font-semibold text-white">{title}</h3>
-        <p className="mt-1 text-sm text-gray-400">{description}</p>
+    <div className="bg-white p-6 rounded-lg text-center border border-gray-200 shadow-md">
+        <Icon className="h-8 w-8 text-blue-500 mx-auto" />
+        <h3 className="mt-4 font-semibold text-gray-900">{title}</h3>
+        <p className="mt-1 text-sm text-gray-600">{description}</p>
     </div>
 );
 
 const Step: React.FC<{ number: string, title: string, description: string }> = ({ number, title, description }) => (
     <div className="flex items-start space-x-4">
-        <div className="flex-shrink-0 h-10 w-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">{number}</div>
+        <div className="flex-shrink-0 h-10 w-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">{number}</div>
         <div>
-            <h4 className="font-semibold text-white">{title}</h4>
-            <p className="text-gray-400">{description}</p>
+            <h4 className="font-semibold text-gray-900">{title}</h4>
+            <p className="text-gray-600">{description}</p>
         </div>
     </div>
 );
@@ -103,17 +103,17 @@ const MarketingAgentsPage: React.FC = () => {
     const activeAgent = agentDetails[activeTab as keyof typeof agentDetails];
 
     return (
-        <div className="bg-[#0B101B] text-white">
-            <section className="py-20 md:py-32">
+        <div className="bg-white text-gray-800">
+            <section className="py-20 md:py-32 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
                     <div>
-                        <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">Automate & Optimize Your Marketing with AI-Powered Agents</h1>
-                        <p className="mt-6 text-lg text-gray-300">Harness the power of AI to manage your campaigns, engage your audience, and drive growth. Our specialized agents work tirelessly to maximize your ROI.</p>
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Automate & Optimize Your Marketing with AI-Powered Agents</h1>
+                        <p className="mt-6 text-lg text-gray-600">Harness the power of AI to manage your campaigns, engage your audience, and drive growth. Our specialized agents work tirelessly to maximize your ROI.</p>
                         <div className="mt-8 flex space-x-4">
-                            <Link to="/contact" className="inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-700 transition-transform transform hover:scale-105">
+                            <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-600 transition-transform transform hover:scale-105">
                                 Explore Agents
                             </Link>
-                             <Link to="/contact" className="inline-block bg-transparent border-2 border-gray-600 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-gray-800 transition-colors">
+                             <Link to="/contact" className="inline-block bg-transparent border-2 border-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg text-base hover:bg-gray-100 transition-colors">
                                 Get Started
                             </Link>
                         </div>
@@ -124,11 +124,11 @@ const MarketingAgentsPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20 bg-[#101622]">
+            <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold">The Future of Marketing is Autonomous</h2>
-                        <p className="mt-4 text-gray-400">Forwardworx Marketing Agents are intelligent, automated systems designed to execute specific marketing functions with precision and efficiency, freeing up your team to focus on strategy and growth.</p>
+                        <p className="mt-4 text-gray-600">Forwardworx Marketing Agents are intelligent, automated systems designed to execute specific marketing functions with precision and efficiency, freeing up your team to focus on strategy and growth.</p>
                     </div>
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         <FeatureCard icon={ClockIcon} title="24/7 Operation" description="Our agents are always active to monitor, optimize, and report on your campaigns." />
@@ -138,7 +138,7 @@ const MarketingAgentsPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20">
+            <section className="py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-center flex-wrap gap-2">
                         {tabs.map(tab => <TabButton key={tab} active={activeTab === tab} onClick={() => setActiveTab(tab)}>{tab}</TabButton>)}
@@ -147,7 +147,7 @@ const MarketingAgentsPage: React.FC = () => {
                         <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-8">
                                 <h3 className="text-3xl font-bold">{activeAgent.purpose}</h3>
-                                <p className="text-gray-300">{activeAgent.description}</p>
+                                <p className="text-gray-600">{activeAgent.description}</p>
                                 <div className="space-y-6">
                                     {activeAgent.process.map(step => (
                                         <Step key={step.number} {...step} />
@@ -157,9 +157,9 @@ const MarketingAgentsPage: React.FC = () => {
                                     <div className="mt-8 pt-4">
                                         <Link 
                                             to="/services/seo-smo" 
-                                            className="inline-block bg-green-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-green-600 transition-transform transform hover:scale-105"
+                                            className="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-600 transition-transform transform hover:scale-105"
                                         >
-                                            View SEO & SMO Plans
+                                            {activeTab === 'SMO Agent' ? 'SMO Plans' : 'SEO Plans'}
                                         </Link>
                                     </div>
                                 )}
@@ -174,7 +174,7 @@ const MarketingAgentsPage: React.FC = () => {
 
             <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-blue-600 rounded-2xl p-12 text-center">
+                    <div className="bg-blue-500 rounded-2xl p-12 text-center">
                         <h2 className="text-4xl font-extrabold text-white">Ready to Revolutionize Your Marketing?</h2>
                         <p className="mt-4 text-xl text-blue-100">See our AI agents in action. Schedule a free, no-obligation demo with one of our specialists and discover how Forwardworx can drive growth for your business.</p>
                         <div className="mt-8">

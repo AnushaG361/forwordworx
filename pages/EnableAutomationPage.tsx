@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MegaphoneIcon, CircleStackIcon, UserGroupIcon, LinkIcon, ArrowUpRightIcon, ShieldCheckIcon, BanknotesIcon, ScaleIcon } from '../constants/icons';
@@ -93,11 +94,11 @@ const EnableAutomationPage: React.FC = () => {
             
             <section className="py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-gray-800 rounded-2xl p-12 text-center text-white">
-                        <h2 className="text-4xl font-extrabold">Ready to Transform Your Business?</h2>
-                        <p className="mt-4 text-xl text-gray-300">Take the next step towards greater efficiency and growth. Let's discuss how our automation solutions can be tailored to your unique needs.</p>
+                    <div className="bg-gray-100 rounded-2xl p-12 text-center text-gray-800">
+                        <h2 className="text-4xl font-extrabold text-gray-900">Ready to Transform Your Business?</h2>
+                        <p className="mt-4 text-xl text-gray-600">Take the next step towards greater efficiency and growth. Let's discuss how our automation solutions can be tailored to your unique needs.</p>
                         <div className="mt-8">
-                            <Link to="/contact" className="inline-block bg-white text-gray-800 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200">Schedule a Consultation</Link>
+                            <Link to="/contact" className="inline-block bg-gray-800 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-900">Schedule a Consultation</Link>
                         </div>
                     </div>
                 </div>
