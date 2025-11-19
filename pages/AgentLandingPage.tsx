@@ -52,7 +52,7 @@ const AgentLandingPage: React.FC = () => {
             </section>
             <section className="py-20 bg-gray-50">
                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                        <AgentCard 
                             icon={ContentAgentIcon}
                             title="Content Agents"
@@ -69,6 +69,14 @@ const AgentLandingPage: React.FC = () => {
                             link="/agents/marketing"
                             linkText="Explore Marketing Agents"
                        />
+                       <AgentCard
+                            icon={MarketingAgentIcon}
+                            title="Media Agents"
+                            description="Agents that manage influencer, PR, and both digital and offline media campaigns."
+                            tags={['Influencer', 'PR', 'Digital Media', 'Offline Media', 'SEO & SMO']}
+                            link="/agents/media"
+                            linkText="Explore Media Agents"
+                        />
                     </div>
                 </div>
             </section>

@@ -31,7 +31,7 @@ const EnableAutomationPage: React.FC = () => {
             <section className="py-20 md:py-32 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900">Automate Your Workflows, Amplify Your Results</h1>
-                    <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Streamline processes, reduce manual work, and integrate systems seamlessly with Forwardworx Automation.</p>
+                    <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Streamline processes, reduce manual work, and integrate systems seamlessly with Forwardworkx Automation.</p>
                     <div className="mt-8 flex justify-center space-x-4">
                         <Link to="/contact" className="bg-gray-800 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-900">Get Started</Link>
                         <Link to="/contact" className="bg-white text-gray-800 font-bold py-3 px-8 rounded-lg border border-gray-300 hover:bg-gray-100">Learn More</Link>

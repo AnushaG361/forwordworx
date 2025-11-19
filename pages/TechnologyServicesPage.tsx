@@ -76,12 +76,12 @@ const TechnologyServicesPage: React.FC = () => {
 };
 
 const techSolutions = [
-    { icon: WebsiteIcon, title: 'Static Website', description: 'Professional, blazing fast sites for your business and lead generating needs.', link: '#' },
-    { icon: ShopifyIcon, title: 'Shopify Website', description: 'Professional e-commerce stores for direct-to-consumer (D2C) brands.', link: '#' },
-    { icon: MobileIcon, title: 'Shopify Mobile App', description: 'Engaging native mobile apps fully integrated with your Shopify store.', link: '#' },
-    { icon: WebsiteIcon, title: 'B2B Website + App', description: 'Custom solutions for complex, multi-step business sales and operations.', link: '#' },
-    { icon: WebsiteIcon, title: 'PD Website + App', description: 'Integrated platforms for professional development and educational content.', link: '#' },
-    { icon: AutomationIcon, title: 'Subscription Automations', description: 'Automated systems for managing recurring revenue and subscription models.', link: '#' },
+    { icon: WebsiteIcon, title: 'Static Website', description: 'Professional, blazing fast sites for your business and lead generating needs.', link: '/contact' },
+    { icon: ShopifyIcon, title: 'Shopify Website', description: 'Professional e-commerce stores for direct-to-consumer (D2C) brands.', link: '/contact' },
+    { icon: MobileIcon, title: 'Shopify Mobile App', description: 'Engaging native mobile apps fully integrated with your Shopify store.', link: '/contact' },
+    { icon: WebsiteIcon, title: 'B2B Website + App', description: 'Custom solutions for complex, multi-step business sales and operations.', link: '/contact' },
+    { icon: WebsiteIcon, title: 'PD Website + App', description: 'Integrated platforms for professional development and educational content.', link: '/contact' },
+    { icon: AutomationIcon, title: 'Subscription Automations', description: 'Automated systems for managing recurring revenue and subscription models.', link: '/contact' },
 ];
 
 export default TechnologyServicesPage;

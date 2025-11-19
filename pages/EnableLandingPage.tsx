@@ -44,7 +44,7 @@ const EnableLandingPage: React.FC = () => {
                             Enable Your Operations
                         </h1>
                         <p className="mt-6 text-lg md:text-xl text-gray-600">
-                            A central hub for Forwardworx's core operational enablement services, providing tools and systems to power your business engine.
+                            A central hub for Forwardworkx's core operational enablement services, providing tools and systems to power your business engine.
                         </p>
                     </div>
                 </div>

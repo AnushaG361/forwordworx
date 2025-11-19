@@ -72,7 +72,7 @@ const HomePage: React.FC = () => {
       {/* About Section */}
       <section className="py-20 bg-gray-50">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-              <h2 className="text-3xl font-bold text-gray-900">About Forwardworx</h2>
+              <h2 className="text-3xl font-bold text-gray-900">About Forwardworkx</h2>
               <p className="mt-4 text-lg text-gray-600 leading-relaxed">
                   We are a team of innovators, engineers, and strategists dedicated to building the next generation of business solutions. Our mission is to simplify complexity through automation, connecting disparate systems into a unified, powerful ecosystem that drives growth and efficiency.
               </p>

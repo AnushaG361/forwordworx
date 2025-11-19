@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -43,7 +42,7 @@ const BenefitItem: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 const ProcessStep: React.FC<{ number: string, title: string, description: string }> = ({ number, title, description }) => (
      <div className="relative">
         <div className="absolute -left-4 top-1 h-8 w-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">{number}</div>
-        <div className="ml-8">
+        <div className="ml-8 text-left">
             <h4 className="font-semibold text-gray-900">{title}</h4>
             <p className="text-gray-600">{description}</p>
         </div>

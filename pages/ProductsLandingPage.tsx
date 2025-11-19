@@ -78,13 +78,13 @@ const ProductsLandingPage: React.FC = () => {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                          <div className="max-w-3xl">
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Business Automation Products</h2>
-                            <p className="mt-4 text-gray-600">Part of the TcAutomation Suite</p>
+                            <p className="mt-4 text-gray-600">Part of the ToAutomation Suite</p>
                         </div>
                         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                             <AutomationProductCard icon={HcmIcon} title="HCM" description="Streamline human capital management." link="/products/hcm" />
-                            <AutomationProductCard icon={CrmIcon} title="CRM" description="Build lasting customer relationships." link="#" />
-                            <AutomationProductCard icon={ErpIcon} title="ERP" description="Integrate core business processes." link="#" />
-                            <AutomationProductCard icon={ScmIcon} title="SCM" description="Optimize your supply chain network." link="#" />
+                            <AutomationProductCard icon={CrmIcon} title="CRM" description="Build lasting customer relationships." link="/contact" />
+                            <AutomationProductCard icon={ErpIcon} title="ERP" description="Integrate core business processes." link="/contact" />
+                            <AutomationProductCard icon={ScmIcon} title="SCM" description="Optimize your supply chain network." link="/contact" />
                         </div>
                     </div>
                 </section>
@@ -94,7 +94,7 @@ const ProductsLandingPage: React.FC = () => {
                     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                         <h2 className="text-4xl font-extrabold text-gray-900">Ready to Transform Your Operations?</h2>
                         <p className="mt-4 text-xl text-gray-600">
-                            Let us show you how Forwardworx's integrated product suites can streamline your processes, drive growth, and unlock your business's full potential.
+                            Let us show you how Forwardworkx's integrated product suites can streamline your processes, drive growth, and unlock your business's full potential.
                         </p>
                         <div className="mt-8">
                             <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-4 px-10 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">

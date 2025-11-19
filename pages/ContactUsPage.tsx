@@ -41,7 +41,7 @@ const ContactUsPage: React.FC = () => {
                             (123) 456-7890
                         </ContactInfoItem>
                         <ContactInfoItem icon={EnvelopeIcon} title="Email Address">
-                            hello@forwardworx.com
+                            hello@forwardworkx.com
                         </ContactInfoItem>
                     </div>
 

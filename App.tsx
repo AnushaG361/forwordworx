@@ -11,6 +11,7 @@ import TechnologyServicesPage from './pages/TechnologyServicesPage';
 import AgentLandingPage from './pages/AgentLandingPage';
 import ContentAgentsPage from './pages/ContentAgentsPage';
 import MarketingAgentsPage from './pages/MarketingAgentsPage';
+import MediaAgentsPage from './pages/MediaAgentsPage';
 import ProductsLandingPage from './pages/ProductsLandingPage';
 import RietailPage from './pages/RietailPage';
 import HcmSuitePage from './pages/HcmSuitePage';
@@ -58,6 +59,7 @@ const App: React.FC = () => {
           <Route path="agents" element={<AgentLandingPage />} />
           <Route path="agents/content" element={<ContentAgentsPage />} />
           <Route path="agents/marketing" element={<MarketingAgentsPage />} />
+          <Route path="agents/media" element={<MediaAgentsPage />} />
           <Route path="products" element={<ProductsLandingPage />} />
           <Route path="products/rietail" element={<RietailPage />} />
           <Route path="products/hcm" element={<HcmSuitePage />} />

@@ -128,7 +128,7 @@ const MarketingAgentsPage: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                      <div className="max-w-3xl mx-auto text-center">
                         <h2 className="text-3xl font-bold">The Future of Marketing is Autonomous</h2>
-                        <p className="mt-4 text-gray-600">Forwardworx Marketing Agents are intelligent, automated systems designed to execute specific marketing functions with precision and efficiency, freeing up your team to focus on strategy and growth.</p>
+                        <p className="mt-4 text-gray-600">Forwardworkx Marketing Agents are intelligent, automated systems designed to execute specific marketing functions with precision and efficiency, freeing up your team to focus on strategy and growth.</p>
                     </div>
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                         <FeatureCard icon={ClockIcon} title="24/7 Operation" description="Our agents are always active to monitor, optimize, and report on your campaigns." />
@@ -176,7 +176,7 @@ const MarketingAgentsPage: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-blue-500 rounded-2xl p-12 text-center">
                         <h2 className="text-4xl font-extrabold text-white">Ready to Revolutionize Your Marketing?</h2>
-                        <p className="mt-4 text-xl text-blue-100">See our AI agents in action. Schedule a free, no-obligation demo with one of our specialists and discover how Forwardworx can drive growth for your business.</p>
+                        <p className="mt-4 text-xl text-blue-100">See our AI agents in action. Schedule a free, no-obligation demo with one of our specialists and discover how Forwardworkx can drive growth for your business.</p>
                         <div className="mt-8">
                             <Link to="/contact" className="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition-colors">
                                 Book a Free Consultation

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ShoppingCartIcon, GlobeAltIcon, ServerStackIcon, LockClosedIcon, ChartPieIcon, CheckCircleIcon, ChevronDownIcon } from '../constants/icons';
+import { Link, useLocation } from 'react-router-dom';
+import { ShoppingCartIcon, GlobeAltIcon, ServerStackIcon, LockClosedIcon, ChartPieIcon, CheckCircleIcon, ChevronDownIcon, CpuChipIcon, AutomationIcon } from '../constants/icons';
 
 const FeatureCard: React.FC<{ icon: React.ElementType; title: string; description: string; }> = ({ icon: Icon, title, description }) => (
     <div className="flex items-start space-x-4">
@@ -32,26 +32,41 @@ const AccordionItem: React.FC<{ title: string; children: React.ReactNode; }> = (
 };
 
 const EnableCommercePage: React.FC = () => {
+    const location = useLocation();
     const [activeModule, setActiveModule] = useState('eCommerce Platforms');
     const modules = ['eCommerce Platforms', 'Payment Gateways', 'Inventory Management', 'Analytics'];
+    
+    const navItems = [
+        { name: 'Commerce', path: '/enable/commerce', icon: ShoppingCartIcon },
+        { name: 'Agents', path: '/enable/agents', icon: CpuChipIcon },
+        { name: 'Automation', path: '/enable/automation', icon: AutomationIcon },
+    ];
 
     return (
         <div className="bg-white text-gray-800 flex">
             <aside className="w-64 bg-gray-50 p-6 hidden lg:block border-r border-gray-200">
                 <div className="flex items-center space-x-2 mb-8">
-                    <ShoppingCartIcon className="h-6 w-6 text-blue-500" />
                     <h2 className="text-xl font-bold text-gray-900">Enable</h2>
                 </div>
-                <nav className="space-y-4">
-                    <a href="#" className="flex items-center p-2 text-blue-600 bg-blue-100 rounded-md font-semibold">Commerce</a>
-                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Content</a>
-                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Analytics</a>
-                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Marketing</a>
+                <nav className="space-y-2">
+                    {navItems.map(item => {
+                        const isActive = location.pathname === item.path;
+                        return (
+                            <Link 
+                                key={item.name}
+                                to={item.path} 
+                                className={`flex items-center p-3 space-x-3 rounded-md transition-colors text-sm font-medium ${
+                                    isActive 
+                                    ? 'bg-blue-100 text-blue-600' 
+                                    : 'text-gray-700 hover:bg-gray-100 hover:text-gray-900'
+                                }`}
+                            >
+                                <item.icon className={`h-5 w-5 ${isActive ? 'text-blue-500' : 'text-gray-400'}`} />
+                                <span>{item.name}</span>
+                            </Link>
+                        )
+                    })}
                 </nav>
-                <div className="mt-auto pt-8 border-t border-gray-200 absolute bottom-6 w-52">
-                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Settings</a>
-                    <a href="#" className="flex items-center p-2 text-gray-600 hover:bg-gray-100 rounded-md">Help</a>
-                </div>
             </aside>
 
             <div className="flex-1">

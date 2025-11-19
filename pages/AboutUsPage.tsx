@@ -28,7 +28,7 @@ const AboutUsPage: React.FC = () => {
       <section className="py-20 md:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900">
-            About Forwardworx
+            About Forwardworkx
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg text-gray-600">
             We are a team of innovators, engineers, and strategists dedicated to building the next generation of business solutions.
@@ -71,7 +71,7 @@ const AboutUsPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
                 <h2 className="text-3xl font-bold text-gray-900">Meet the Team</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-gray-600">The passionate individuals behind Forwardworx.</p>
+                <p className="mt-4 max-w-2xl mx-auto text-gray-600">The passionate individuals behind Forwardworkx.</p>
             </div>
             <div className="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <TeamMemberCard name="Jane Doe" title="CEO & Founder" imageUrl="https://picsum.photos/seed/team1/200" />
@@ -88,8 +88,8 @@ const AboutUsPage: React.FC = () => {
               <h2 className="text-3xl font-extrabold text-gray-900">Join Our Journey</h2>
               <p className="mt-4 text-lg text-gray-600">We're always looking for talented people to join our team. Explore our open positions and help us shape the future of business enablement.</p>
               <div className="mt-8">
-                  <Link to="/careers" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
-                      View Careers
+                  <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                      Work With Us
                   </Link>
               </div>
           </div>

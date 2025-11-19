@@ -41,7 +41,7 @@ const HcmSuitePage: React.FC = () => {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Streamline and Automate Your Human Capital Management</h1>
-                            <p className="mt-6 text-lg text-gray-600">The HCM Suite from Forwardworx integrates everything from payroll to performance reviews, freeing you to focus on your most valuable asset: your people.</p>
+                            <p className="mt-6 text-lg text-gray-600">The HCM Suite from Forwardworkx integrates everything from payroll to performance reviews, freeing you to focus on your most valuable asset: your people.</p>
                             <div className="mt-8">
                                 <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                                     Request a Demo
@@ -114,7 +114,7 @@ const HcmSuitePage: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-blue-500 rounded-2xl p-12 text-center">
                         <h2 className="text-4xl font-extrabold text-white">Ready to Transform Your HR?</h2>
-                        <p className="mt-4 text-xl text-blue-100">See first-hand how the Forwardworx HCM Suite can streamline your operations and empower your team. Schedule a personalized demo with one of our product experts today.</p>
+                        <p className="mt-4 text-xl text-blue-100">See first-hand how the Forwardworkx HCM Suite can streamline your operations and empower your team. Schedule a personalized demo with one of our product experts today.</p>
                         <div className="mt-8">
                             <Link to="/contact" className="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-lg text-lg hover:bg-gray-200 transition-colors">
                                 See It in Action

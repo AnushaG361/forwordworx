@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ darkTheme }) => {
                     <div className="flex-shrink-0">
                         <Link to="/" className="flex items-center space-x-2">
                             <LogoIcon className={`h-8 w-8 ${darkTheme ? 'text-white' : 'text-blue-600'}`} />
-                            <span className="font-bold text-xl">Forwardworx</span>
+                            <span className="font-bold text-xl">Forwardworkx</span>
                         </Link>
                     </div>
                     <div className="hidden md:block">

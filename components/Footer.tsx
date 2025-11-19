@@ -16,10 +16,10 @@ const Footer: React.FC<FooterProps> = ({ darkTheme }) => {
                 {
                     !darkTheme && (
                         <div className="flex flex-wrap justify-between items-center border-t border-gray-200 pt-8 mt-8">
-                            <div className="w-full lg:w-1/4 mb-6 lg:mb-0">
+                            <div className="w-full lg:w-1/3 mb-6 lg:mb-0">
                                 <Link to="/" className="flex items-center space-x-2">
                                     <LogoIcon className="h-8 w-8 text-blue-600" />
-                                    <span className="font-bold text-xl text-gray-900">Forwardworx</span>
+                                    <span className="font-bold text-xl text-gray-900">Forwardworkx</span>
                                 </Link>
                                 <p className="mt-2 text-sm">Creative, marketing, and technology services.</p>
                             </div>
@@ -27,8 +27,8 @@ const Footer: React.FC<FooterProps> = ({ darkTheme }) => {
                                 <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Company</h3>
                                 <ul className="mt-4 space-y-4">
                                     <li><Link to="/about" className={linkClass}>About</Link></li>
-                                    <li><Link to="/careers" className={linkClass}>Careers</Link></li>
-                                    <li><Link to="/press" className={linkClass}>Press</Link></li>
+                                    <li><Link to="/contact" className={linkClass}>Careers</Link></li>
+                                    <li><Link to="/contact" className={linkClass}>Press</Link></li>
                                 </ul>
                             </div>
                              <div className="w-1/2 sm:w-1/4 lg:w-auto mb-6 lg:mb-0">
@@ -39,22 +39,15 @@ const Footer: React.FC<FooterProps> = ({ darkTheme }) => {
                                     <li><Link to="/products" className={linkClass}>Products</Link></li>
                                 </ul>
                             </div>
-                            <div className="w-1/2 sm:w-1/4 lg:w-auto">
-                                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">Legal</h3>
-                                <ul className="mt-4 space-y-4">
-                                    <li><Link to="/privacy" className={linkClass}>Privacy Policy</Link></li>
-                                    <li><Link to="/terms" className={linkClass}>Terms of Service</Link></li>
-                                </ul>
-                            </div>
                         </div>
                     )
                 }
                 <div className={`mt-8 border-t ${darkTheme ? 'border-gray-700' : 'border-gray-200'} pt-8 flex flex-col sm:flex-row items-center justify-between`}>
-                    <p className="text-sm text-center sm:text-left">&copy; {new Date().getFullYear()} Forwardworx. All rights reserved.</p>
+                    <p className="text-sm text-center sm:text-left">&copy; {new Date().getFullYear()} Forwardworkx. All rights reserved.</p>
                     { darkTheme && (
                         <div className="flex space-x-4 mt-4 sm:mt-0">
-                            <Link to="/privacy" className={linkClass}>Privacy Policy</Link>
-                            <Link to="/terms" className={linkClass}>Terms of Service</Link>
+                            <Link to="#" className={linkClass}>Privacy Policy</Link>
+                            <Link to="#" className={linkClass}>Terms of Service</Link>
                         </div>
                     )}
                     <div className="flex space-x-6 mt-4 sm:mt-0">

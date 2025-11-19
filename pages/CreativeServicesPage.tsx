@@ -46,7 +46,7 @@ const CreativeServicesPage: React.FC = () => {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-4xl font-bold text-gray-900">Leveraging AI to Augment and Accelerate Your Creative Process</h2>
                     <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                        At Forwardworx, we integrate cutting-edge artificial intelligence to revolutionize your creative workflow. From initial concept to final execution, our AI-powered services deliver unparalleled speed, precision, and brand consistency, allowing you to scale your content creation efforts effortlessly.
+                        At Forwardworkx, we integrate cutting-edge artificial intelligence to revolutionize your creative workflow. From initial concept to final execution, our AI-powered services deliver unparalleled speed, precision, and brand consistency, allowing you to scale your content creation efforts effortlessly.
                     </p>
                 </div>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">

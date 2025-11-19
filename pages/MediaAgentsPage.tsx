@@ -27,7 +27,7 @@ const MediaAgentsPage: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Intelligent Media Agents: Your Automated Marketing Powerhouse</h1>
-                        <p className="mt-6 text-lg text-gray-600">Forwardworx's Media Agents automate and optimize your media presence across both digital and offline channels, delivering unparalleled results at scale.</p>
+                        <p className="mt-6 text-lg text-gray-600">Forwardworkx's Media Agents automate and optimize your media presence across both digital and offline channels, delivering unparalleled results at scale.</p>
                         <div className="mt-8 flex space-x-4">
                             <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-600 transition-transform transform hover:scale-105">
                                 Explore Our Agents
@@ -120,7 +120,7 @@ const MediaAgentsPage: React.FC = () => {
             <section className="py-20 text-center bg-gray-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-4xl font-extrabold text-gray-900">Ready to amplify your media strategy?</h2>
-                    <p className="mt-4 text-xl text-gray-600">Schedule a free consultation to see how Forwardworx can revolutionize your reach.</p>
+                    <p className="mt-4 text-xl text-gray-600">Schedule a free consultation to see how Forwardworkx can revolutionize your reach.</p>
                     <div className="mt-8">
                         <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
                             Get Started with Media Agents

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CreativeIcon, MarketingIcon, TechIcon, CheckCircleIcon, ArrowRightIcon } from '../constants/icons';
+import { CreativeIcon, MarketingIcon, TechIcon, CheckCircleIcon, ArrowRightIcon, AutomationIcon } from '../constants/icons';
 
 const ServiceCard: React.FC<{
   icon: React.ElementType;
@@ -47,7 +47,7 @@ const ServicesLandingPage: React.FC = () => {
             We offer a comprehensive suite of services designed to meet the demands of the modern digital landscape. Discover how our expertise can benefit you.
           </p>
         </div>
-        <div className="mt-20 grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ServiceCard
             icon={CreativeIcon}
             title="Creative Services"
@@ -68,6 +68,13 @@ const ServicesLandingPage: React.FC = () => {
             items={['Static & Shopify Websites', 'Shopify Mobile Apps', 'B2B Websites + Apps', 'Subscription Automations']}
             link="/services/technology"
             linkText="View Technology Platforms"
+          />
+          <ServiceCard
+            icon={AutomationIcon}
+            title="ToAutomation Suite"
+            items={['HCM (Human Capital)', 'CRM Solutions', 'ERP Integration', 'SCM Optimization']}
+            link="/enable/automation"
+            linkText="View Automation Solutions"
           />
         </div>
       </div>
