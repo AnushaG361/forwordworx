@@ -1,81 +1,264 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ContentAgentIcon, MarketingAgentIcon } from '../constants/icons';
+import { 
+    ContentAgentIcon, 
+    MarketingAgentIcon, 
+    SparklesIcon, 
+    DocumentSignatureIcon, 
+    MegaphoneIcon, 
+    ShoppingCartIcon, 
+    LinkIcon, 
+    ChartBarIcon, 
+    GlobeAltIcon, 
+    DocumentCheckIcon,
+    ArrowRightIcon,
+    CheckCircleIcon
+} from '../constants/icons';
 
-const AgentCard: React.FC<{
-    icon: React.ElementType;
-    title: string;
-    description: string;
-    tags: string[];
-    link: string;
-    linkText: string;
-}> = ({ icon: Icon, title, description, tags, link, linkText }) => (
-    <div className="bg-white rounded-2xl p-8 flex flex-col border border-gray-200 shadow-lg hover:shadow-xl transition-shadow duration-300">
-        <div className="flex items-center space-x-4">
-            <div className="bg-blue-100 p-3 rounded-lg">
-                <Icon className="h-6 w-6 text-blue-500" />
+const MiniCard: React.FC<{ 
+    icon: React.ElementType, 
+    title: string, 
+    subtitle: string, 
+    description: string, 
+    bullets: string[],
+    link: string 
+}> = ({ icon: Icon, title, subtitle, description, bullets, link }) => (
+    <Link to={link} className="block group h-full">
+        <div className="bg-white border border-gray-200 hover:border-blue-400 rounded-xl p-6 h-full transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1">
+            <div className="flex items-center justify-between mb-4">
+                <div className="bg-blue-50 p-2 rounded-lg group-hover:bg-blue-100 transition-colors">
+                    <Icon className="h-6 w-6 text-blue-600 group-hover:text-blue-700" />
+                </div>
+                <ArrowRightIcon className="h-5 w-5 text-gray-300 group-hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all" />
             </div>
-            <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{title}</h3>
+            <p className="text-sm font-semibold text-blue-600 mb-3">{subtitle}</p>
+            <p className="text-gray-600 text-sm mb-4 leading-relaxed">{description}</p>
+            <ul className="space-y-2">
+                {bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start text-xs text-gray-500">
+                        <span className="mr-2 text-blue-500">•</span>
+                        {bullet}
+                    </li>
+                ))}
+            </ul>
         </div>
-        <p className="mt-4 text-gray-600 flex-grow">{description}</p>
-        <div className="mt-6 flex flex-wrap gap-2">
-            {tags.map(tag => (
-                <span key={tag} className="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1 rounded-full">
-                    {tag}
-                </span>
+    </Link>
+);
+
+const PricingCard: React.FC<{ title: string, price: string, features: string[], recommended?: boolean }> = ({ title, price, features, recommended }) => (
+    <div className={`relative flex flex-col p-8 rounded-2xl border transition-transform hover:scale-105 duration-300 ${recommended ? 'bg-white border-blue-500 shadow-xl ring-1 ring-blue-500' : 'bg-white border-gray-200 shadow-lg'}`}>
+        {recommended && (
+            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md tracking-wide uppercase">Most Popular</span>
+            </div>
+        )}
+        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+        <div className="mt-4 mb-6">
+            <span className="text-4xl font-extrabold text-gray-900">{price}</span>
+            {price !== 'Custom' && <span className="text-gray-500 text-sm font-medium">/month</span>}
+        </div>
+        <ul className="space-y-4 mb-8 flex-1">
+            {features.map((feature, idx) => (
+                <li key={idx} className="flex items-start text-sm text-gray-600">
+                    <CheckCircleIcon className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
+                    <span>{feature}</span>
+                </li>
             ))}
-        </div>
-        <div className="mt-8">
-            <Link to={link} className="w-full text-center bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 inline-block">
-                {linkText}
-            </Link>
-        </div>
+        </ul>
+        <button className={`w-full py-3 px-6 rounded-lg font-bold transition-colors ${recommended ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-800 hover:bg-gray-900 text-white'}`}>
+            Get Started
+        </button>
     </div>
 );
 
-
 const AgentLandingPage: React.FC = () => {
     return (
-        <div className="bg-white text-gray-800">
-            <section className="py-20 md:py-32">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center max-w-4xl mx-auto">
-                        <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
-                            Your Automated Team of Experts
+        <div className="min-h-screen bg-white text-gray-800 font-sans selection:bg-blue-100 selection:text-blue-900">
+            
+            {/* Hero Section */}
+            <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-5xl mx-auto">
+                            Empower your business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI Agents</span> that work tirelessly—scaling your success around the clock
                         </h1>
-                        <p className="mt-6 text-lg md:text-xl text-gray-600">
-                            Discover our specialized agents designed to scale your content and marketing efforts.
+                        <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
+                            Deploy your autonomous workforce today. Scalable, efficient, and always on.
                         </p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        {/* Content Agent Hero Card */}
+                        <div className="bg-white border border-purple-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                            <div className="flex items-center space-x-4 mb-6">
+                                <div className="bg-purple-100 p-3 rounded-xl">
+                                    <ContentAgentIcon className="h-8 w-8 text-purple-600" />
+                                </div>
+                                <h2 className="text-3xl font-bold text-gray-900">Content Agent</h2>
+                            </div>
+                            <p className="text-xl text-gray-600 font-medium mb-8 leading-relaxed">
+                                Creates ideas, branding, catalogs, & all your creative sauce.
+                            </p>
+                            <Link to="/agents/content" className="inline-flex items-center justify-center w-full py-4 px-6 bg-white border-2 border-purple-600 text-purple-600 hover:bg-purple-50 font-bold rounded-xl transition-all">
+                                Explore Content Agent <ArrowRightIcon className="ml-2 h-5 w-5" />
+                            </Link>
+                        </div>
+
+                        {/* Marketing Agent Hero Card */}
+                        <div className="bg-white border border-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                            <div className="flex items-center space-x-4 mb-6">
+                                <div className="bg-blue-100 p-3 rounded-xl">
+                                    <MarketingAgentIcon className="h-8 w-8 text-blue-600" />
+                                </div>
+                                <h2 className="text-3xl font-bold text-gray-900">Marketing Agent</h2>
+                            </div>
+                            <p className="text-xl text-gray-600 font-medium mb-8 leading-relaxed">
+                                Meta Ads + Google Ads + Sales Funnels = <span className="text-green-600 font-bold">📈 No excuses zone</span>
+                            </p>
+                            <Link to="/agents/marketing" className="inline-flex items-center justify-center w-full py-4 px-6 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg">
+                                Explore Marketing Agent <ArrowRightIcon className="ml-2 h-5 w-5" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section className="py-20 bg-gray-50">
-                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                       <AgentCard 
-                            icon={ContentAgentIcon}
-                            title="Content Agents"
-                            description="An overview of agents that create and manage digital content."
-                            tags={['Brand Agent', 'Creatives Agent', 'Catalog Listing Agent']}
-                            link="/agents/content"
-                            linkText="Explore Content Agents"
-                       />
-                       <AgentCard 
-                            icon={MarketingAgentIcon}
-                            title="Marketing Agents"
-                            description="An overview of agents that execute and optimize marketing campaigns."
-                            tags={['Meta Ads Agent', 'Google Ads Agent', 'Retention Agent', 'Lead & Sales Agent', 'SEO Agent', 'SMO Agent']}
-                            link="/agents/marketing"
-                            linkText="Explore Marketing Agents"
-                       />
-                       <AgentCard
-                            icon={MarketingAgentIcon}
-                            title="Media Agents"
-                            description="Agents that manage influencer, PR, and both digital and offline media campaigns."
-                            tags={['Influencer', 'PR', 'Digital Media', 'Offline Media', 'SEO & SMO']}
-                            link="/agents/media"
-                            linkText="Explore Media Agents"
+
+            {/* Content Agent Capabilities */}
+            <section className="py-20 bg-gray-50 border-t border-gray-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="mb-12">
+                        <span className="text-purple-600 font-bold tracking-wider uppercase text-sm bg-purple-100 px-3 py-1 rounded-full">Content Agent Capabilities</span>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-4">Creativity on Auto-Pilot</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        <MiniCard 
+                            icon={SparklesIcon}
+                            title="Creative Agent"
+                            subtitle="Think → Script → Create → Deliver"
+                            description="Plans and produces your brand’s entire content output."
+                            bullets={['Creative strategy & ideation', 'Social post scripts & captions', 'Video content workflows', 'High-quality creative messaging']}
+                            link="/agents/content/creative"
+                        />
+                        <MiniCard 
+                            icon={DocumentSignatureIcon}
+                            title="Brand Book Agent"
+                            subtitle="Makes brand guidelines look elite"
+                            description="Builds and upgrades brand identity documentation."
+                            bullets={['Brand voice development', 'Color, typography & visual guidelines', 'Logo consistency', 'Brand narrative']}
+                            link="/agents/content/brand-book"
+                        />
+                        <MiniCard 
+                            icon={MegaphoneIcon}
+                            title="Ads Agent"
+                            subtitle="Meta + Google ad creatives? Done."
+                            description="Delivers ad-ready content for every channel."
+                            bullets={['Ad copywriting (USP, CTA, hooks)', 'Campaign-specific design language', 'Market testing variations']}
+                            link="/agents/content/ads"
+                        />
+                        <MiniCard 
+                            icon={ShoppingCartIcon}
+                            title="AI Catalog Agent"
+                            subtitle="Create, clean & format product catalogs"
+                            description="Creates and automates product catalog content."
+                            bullets={['Product descriptions & breakdowns', 'Image copy & structured lists', 'Catalog formats for ecommerce']}
+                            link="/agents/content/catalog"
+                        />
+                        <MiniCard 
+                            icon={LinkIcon} 
+                            title="Catalog Listing Agent"
+                            subtitle="Listing sheets for all marketplaces"
+                            description="Prepares accurate product listings for distribution."
+                            bullets={['Listings for Shopify/Amazon/Flipkart', 'Category-wise structured data', 'SKU mapping with compliance']}
+                            link="/agents/content/listing"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Marketing Agent Capabilities */}
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="mb-12">
+                         <span className="text-blue-600 font-bold tracking-wider uppercase text-sm bg-blue-100 px-3 py-1 rounded-full">Marketing Agent Capabilities</span>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-4">Your Growth Hacker in AI Form</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <MiniCard 
+                            icon={ChartBarIcon}
+                            title="Meta Agent"
+                            subtitle="Campaign mapping. Results first."
+                            description="Creates smart campaign structures tailored to business goals."
+                            bullets={['Complete Meta ads funnel mapping', 'Audience breakdown & conversion paths', 'Always-on remarketing strategy']}
+                            link="/agents/marketing/meta"
+                        />
+                        <MiniCard 
+                            icon={GlobeAltIcon}
+                            title="Google Agent"
+                            subtitle="Search + Demand Gen + PMax mastery"
+                            description="End-to-end management of Google Ads ecosystem."
+                            bullets={['Search, Demand Gen & Performance Max', 'Keyword intent mapping', 'Retail-ready conversion planning']}
+                            link="/agents/marketing/google"
+                        />
+                        <MiniCard 
+                            icon={DocumentCheckIcon}
+                            title="Business Proposal Agent"
+                            subtitle="Investor-ready, client-approved proposals"
+                            description="Creates high-impact proposals that convert clients or buyers."
+                            bullets={['Problem + solution breakdown', 'Numbers & ROI justification', 'Offer positioning for decision-makers']}
+                            link="/agents/marketing/proposal"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Pricing Section */}
+             <section className="py-20 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold text-gray-900">Pricing Plans</h2>
+                        <p className="mt-4 text-gray-600">Select the power level that fits your business needs.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                        <PricingCard 
+                            title="Starter" 
+                            price="$499" 
+                            features={[
+                                'Access to 1 Agent Type',
+                                'Standard Response Time',
+                                '50 Task Executions/mo',
+                                'Basic Reporting',
+                                'Email Support'
+                            ]} 
+                        />
+                        <PricingCard 
+                            title="Growth" 
+                            price="$999" 
+                            recommended={true}
+                            features={[
+                                'Access to All Agents',
+                                'Priority Response Time',
+                                '500 Task Executions/mo',
+                                'Advanced Analytics',
+                                'Dedicated Account Manager',
+                                'Custom Workflows'
+                            ]} 
+                        />
+                        <PricingCard 
+                            title="Enterprise" 
+                            price="Custom" 
+                            features={[
+                                'Unlimited Agent Access',
+                                'Real-time Execution',
+                                'Unlimited Tasks',
+                                'API Access & Integrations',
+                                'White-glove Onboarding',
+                                '24/7 Premium Support'
+                            ]} 
                         />
                     </div>
                 </div>

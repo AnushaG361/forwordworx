@@ -24,6 +24,7 @@ import EnableAutomationPage from './pages/EnableAutomationPage';
 import AboutUsPage from './pages/AboutUsPage';
 import ContactUsPage from './pages/ContactUsPage';
 import SeoSubscriptionPage from './pages/SeoSubscriptionPage';
+import SpecificAgentPage from './pages/SpecificAgentPage';
 
 const Layout: React.FC = () => {
     const location = useLocation();
@@ -56,10 +57,24 @@ const App: React.FC = () => {
           <Route path="services/marketing" element={<MarketingServicesPage />} />
           <Route path="services/technology" element={<TechnologyServicesPage />} />
           <Route path="services/seo-smo" element={<SeoSubscriptionPage />} />
+          
           <Route path="agents" element={<AgentLandingPage />} />
+          {/* Category Pages */}
           <Route path="agents/content" element={<ContentAgentsPage />} />
           <Route path="agents/marketing" element={<MarketingAgentsPage />} />
           <Route path="agents/media" element={<MediaAgentsPage />} />
+          
+          {/* Specific Agent Pages */}
+          <Route path="agents/content/creative" element={<SpecificAgentPage agentKey="creative" />} />
+          <Route path="agents/content/brand-book" element={<SpecificAgentPage agentKey="brand-book" />} />
+          <Route path="agents/content/ads" element={<SpecificAgentPage agentKey="ads" />} />
+          <Route path="agents/content/catalog" element={<SpecificAgentPage agentKey="ai-catalog" />} />
+          <Route path="agents/content/listing" element={<SpecificAgentPage agentKey="catalog-listing" />} />
+          
+          <Route path="agents/marketing/meta" element={<SpecificAgentPage agentKey="meta" />} />
+          <Route path="agents/marketing/google" element={<SpecificAgentPage agentKey="google" />} />
+          <Route path="agents/marketing/proposal" element={<SpecificAgentPage agentKey="proposal" />} />
+
           <Route path="products" element={<ProductsLandingPage />} />
           <Route path="products/rietail" element={<RietailPage />} />
           <Route path="products/hcm" element={<HcmSuitePage />} />
