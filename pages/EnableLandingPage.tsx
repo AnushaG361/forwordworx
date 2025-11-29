@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCartIcon, CpuChipIcon, AutomationIcon, CheckCircleIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const EnablementCard: React.FC<{
     icon: React.ElementType;
@@ -37,6 +38,11 @@ const EnablementCard: React.FC<{
 const EnableLandingPage: React.FC = () => {
     return (
         <div className="bg-white text-gray-800">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Enable' }]} />
+            </div>
+
             <section className="py-20 md:py-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center max-w-4xl mx-auto">

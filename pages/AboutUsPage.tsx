@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LightBulbIcon, HeartIcon, UsersIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const ValueCard: React.FC<{ icon: React.ElementType; title: string; description: string; }> = ({ icon: Icon, title, description }) => (
     <div className="bg-white p-6 rounded-lg shadow-md text-center">
@@ -24,6 +25,11 @@ const TeamMemberCard: React.FC<{ name: string; title: string; imageUrl: string; 
 const AboutUsPage: React.FC = () => {
   return (
     <div className="bg-white text-gray-800">
+      {/* Breadcrumbs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+          <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'About Us' }]} />
+      </div>
+
       {/* Hero Section */}
       <section className="py-20 md:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

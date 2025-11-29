@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const ContactInfoItem: React.FC<{ icon: React.ElementType; title: string; children: React.ReactNode; }> = ({ icon: Icon, title, children }) => (
     <div className="flex items-start space-x-4">
@@ -23,6 +24,11 @@ const ContactUsPage: React.FC = () => {
 
     return (
         <div className="bg-white">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Contact Us' }]} />
+            </div>
+
             <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
                 <div className="text-center">
                     <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">Contact Us</h1>

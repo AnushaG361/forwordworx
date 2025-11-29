@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { RocketLaunchIcon, BanknotesIcon, BadgeCheckIcon, ClockIcon, ShopifyIcon, BuildingLibraryIcon, HeartIcon, ChevronDownIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const AccordionItem: React.FC<{ title: string; children: React.ReactNode; }> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -38,13 +39,13 @@ const UseCaseCard: React.FC<{ icon: React.ElementType; title: string; descriptio
 const EnableAgentsPage: React.FC = () => {
     return (
         <div className="bg-white text-gray-800">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Enable', path: '/enable' }, { label: 'Agents' }]} />
+            </div>
+
             <section className="py-20 md:py-32 bg-gray-50">
                  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav className="text-sm mb-8 text-gray-500">
-                        <Link to="/" className="hover:text-gray-900">Home</Link> / 
-                        <Link to="/enable" className="hover:text-gray-900"> Enable</Link> / 
-                        <span className="text-gray-400"> Agents</span>
-                    </nav>
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div>
                             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Enable: Agents</h1>

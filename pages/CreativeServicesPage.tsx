@@ -1,7 +1,8 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { CameraIcon, BrushIcon, VideoIcon, BrandIcon, AiIcon, VirtualIcon } from '../constants/icons';
+import { CameraIcon, BrushIcon, VideoIcon, BrandIcon, AiIcon, VirtualIcon, ChevronDownIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const CreativeServiceDetailCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
     <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
@@ -24,9 +25,32 @@ const GalleryItem: React.FC<{ image: string, title: string }> = ({ image, title 
     </div>
 );
 
+const FAQItem: React.FC<{ question: string; answer: React.ReactNode }> = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div className="border-b border-gray-200 last:border-0">
+            <button 
+                onClick={() => setIsOpen(!isOpen)} 
+                className="w-full flex justify-between items-center py-5 text-left focus:outline-none group"
+            >
+                <span className={`text-lg font-semibold transition-colors ${isOpen ? 'text-blue-600' : 'text-gray-900 group-hover:text-blue-600'}`}>{question}</span>
+                <ChevronDownIcon className={`h-5 w-5 text-gray-500 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180 text-blue-600' : ''}`} />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[800px] opacity-100 pb-5' : 'max-h-0 opacity-0'}`}>
+                <div className="text-gray-600 leading-relaxed text-base">{answer}</div>
+            </div>
+        </div>
+    );
+};
+
 const CreativeServicesPage: React.FC = () => {
     return (
         <div className="bg-white text-gray-800">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Services', path: '/services' }, { label: 'Creative' }]} />
+            </div>
+
             {/* Hero Section */}
             <section className="relative py-32 md:py-48 text-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/seed/abstractwave/1200/800')" }}>
                 <div className="absolute inset-0 bg-gray-900/60"></div>
@@ -67,6 +91,68 @@ const CreativeServicesPage: React.FC = () => {
                         ))}
                     </div>
                  </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-20 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold text-gray-900">Creative Services — FAQs</h2>
+                    </div>
+                    <div className="space-y-2">
+                        <FAQItem 
+                            question="1️⃣ What types of creative work do you offer?" 
+                            answer={
+                                <>
+                                    <p className="mb-2">We handle everything visual your brand needs:</p>
+                                    <ul className="list-disc pl-5 space-y-1">
+                                        <li>Photoshoots (product + lifestyle)</li>
+                                        <li>Brand films & ads</li>
+                                        <li>Influencer video creation</li>
+                                        <li>Brand Identity & guidelines</li>
+                                        <li>Catalogs, lookbooks, packaging, UI/UX — the full sauce 💅</li>
+                                    </ul>
+                                </>
+                            }
+                        />
+                        <FAQItem 
+                            question="2️⃣ Do you take care of models, studios, and locations?" 
+                            answer="Yep. You just show up with your brand — We handle models, props, crew, lighting, locations & post-production. Zero stress."
+                        />
+                        <FAQItem 
+                            question="3️⃣ Can you plan shoot concepts too?" 
+                            answer="Absolutely. We script, moodboard, shotlist, art-direct — your visuals tell a story, not just pose."
+                        />
+                        <FAQItem 
+                            question="4️⃣ How soon can we see the final creatives?" 
+                            answer="Standard timeline: 7–14 days. Rush delivery available if you’re on “launch tomorrow” mode 😅"
+                        />
+                        <FAQItem 
+                            question="5️⃣ Do we own the rights to the content?" 
+                            answer="YES. Once delivered & approved — you get full usage rights for ads, e-commerce, social, anywhere."
+                        />
+                        <FAQItem 
+                            question="6️⃣ Can you match our brand look/style?" 
+                            answer="🔥 100%. We adapt to your vibe or build a new one from scratch (brand book included if needed)."
+                        />
+                        <FAQItem 
+                            question="7️⃣ Do you handle influencer video shoots too?" 
+                            answer="Yes — from talent sourcing → scripting → editing → delivery. Macro or micro creators — whoever fits your brand."
+                        />
+                        <FAQItem 
+                            question="8️⃣ What if we need monthly content?" 
+                            answer="We have content retainer plans to keep your grid & ads always fresh."
+                        />
+                        <FAQItem 
+                            question="9️⃣ What if we’re not in the same city?" 
+                            answer="Shipping your products to our studio works just fine 📦 We also travel if needed — national & international."
+                        />
+                        <FAQItem 
+                            question="🔟 Can you create content for Amazon/Flipkart listings?" 
+                            answer="Yessir — e-commerce optimized images, infographics & A+ content are all part of the pack."
+                        />
+                    </div>
+                </div>
             </section>
 
             {/* CTA Section */}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UsersIcon, UserCheckIcon, DocumentSignatureIcon, CalendarIcon, TrendingUpIcon, CreditCardIcon, ShopifyIcon, MobileIcon, BadgeCheckIcon, HeartIcon, UsersPlusIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const TabButton: React.FC<{ active: boolean, onClick: () => void, children: React.ReactNode }> = ({ active, onClick, children }) => (
     <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-full transition-colors border ${active ? 'border-blue-500 text-blue-600 bg-blue-50' : 'border-gray-300 text-gray-600 hover:border-gray-400 hover:bg-gray-50'}`}>
@@ -23,6 +24,11 @@ const MediaAgentsPage: React.FC = () => {
 
     return (
         <div className="bg-white text-gray-800">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'AI Agents', path: '/agents' }, { label: 'Media Agents' }]} />
+            </div>
+
             <section className="py-20 md:py-32 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
                     <div>

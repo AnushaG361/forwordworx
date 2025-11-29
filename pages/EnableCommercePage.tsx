@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCartIcon, GlobeAltIcon, ServerStackIcon, LockClosedIcon, ChartPieIcon, CheckCircleIcon, ChevronDownIcon, CpuChipIcon, AutomationIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const FeatureCard: React.FC<{ icon: React.ElementType; title: string; description: string; }> = ({ icon: Icon, title, description }) => (
     <div className="flex items-start space-x-4">
@@ -44,7 +45,7 @@ const EnableCommercePage: React.FC = () => {
 
     return (
         <div className="bg-white text-gray-800 flex">
-            <aside className="w-64 bg-gray-50 p-6 hidden lg:block border-r border-gray-200">
+            <aside className="w-64 bg-gray-50 p-6 hidden lg:block border-r border-gray-200 sticky top-20 h-screen overflow-y-auto">
                 <div className="flex items-center space-x-2 mb-8">
                     <h2 className="text-xl font-bold text-gray-900">Enable</h2>
                 </div>
@@ -70,11 +71,13 @@ const EnableCommercePage: React.FC = () => {
             </aside>
 
             <div className="flex-1">
-                <header className="p-6 border-b border-gray-200 flex justify-between items-center bg-white">
-                    <h1 className="text-2xl font-bold text-gray-900">Commerce Solutions</h1>
-                    <div className="flex items-center space-x-4">
-                        <Link to="/contact" className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-blue-600">Contact Sales</Link>
-                        <div className="w-10 h-10 bg-gray-200 rounded-full"></div>
+                <header className="p-6 border-b border-gray-200 flex flex-col md:flex-row justify-between items-center bg-white sticky top-20 z-30">
+                    <div className="w-full md:w-auto mb-4 md:mb-0">
+                        <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Enable', path: '/enable' }, { label: 'Commerce' }]} />
+                    </div>
+                    <div className="flex items-center space-x-4 w-full md:w-auto justify-between md:justify-end">
+                        <h1 className="text-xl font-bold text-gray-900 md:hidden">Commerce</h1>
+                        <Link to="/contact" className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-blue-600 whitespace-nowrap">Contact Sales</Link>
                     </div>
                 </header>
 
@@ -106,14 +109,14 @@ const EnableCommercePage: React.FC = () => {
 
                     <section className="py-16">
                         <h3 className="text-2xl font-bold text-center text-gray-900">Supported Modules</h3>
-                        <div className="mt-8 flex justify-center space-x-2 border-b border-gray-200">
-                            {modules.map(mod => <button key={mod} onClick={() => setActiveModule(mod)} className={`px-4 py-2 text-sm font-medium transition-colors ${activeModule === mod ? 'border-b-2 border-blue-500 text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}>{mod}</button>)}
+                        <div className="mt-8 flex justify-center space-x-2 border-b border-gray-200 overflow-x-auto">
+                            {modules.map(mod => <button key={mod} onClick={() => setActiveModule(mod)} className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${activeModule === mod ? 'border-b-2 border-blue-500 text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}>{mod}</button>)}
                         </div>
-                        <div className="mt-8 flex justify-center items-center space-x-8 grayscale opacity-60">
-                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
-                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
-                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
-                            <div className="h-10 w-28 bg-gray-200 rounded"></div>
+                        <div className="mt-8 flex justify-center items-center space-x-8 grayscale opacity-60 overflow-x-auto py-4">
+                            <div className="h-10 w-28 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded flex-shrink-0"></div>
+                            <div className="h-10 w-28 bg-gray-200 rounded flex-shrink-0"></div>
                         </div>
                     </section>
                     
@@ -128,8 +131,8 @@ const EnableCommercePage: React.FC = () => {
                     
                     <section className="py-16">
                          <p className="text-center text-gray-500 text-sm font-semibold tracking-wider uppercase">Trusted by Industry Leaders</p>
-                        <div className="mt-6 flex justify-center items-center space-x-8 md:space-x-12 grayscale opacity-60">
-                            <div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div><div className="h-8 w-24 bg-gray-200 rounded"></div>
+                        <div className="mt-6 flex justify-center items-center space-x-8 md:space-x-12 grayscale opacity-60 overflow-x-auto">
+                            <div className="h-8 w-24 bg-gray-200 rounded flex-shrink-0"></div><div className="h-8 w-24 bg-gray-200 rounded flex-shrink-0"></div><div className="h-8 w-24 bg-gray-200 rounded flex-shrink-0"></div><div className="h-8 w-24 bg-gray-200 rounded flex-shrink-0"></div><div className="h-8 w-24 bg-gray-200 rounded flex-shrink-0"></div><div className="h-8 w-24 bg-gray-200 rounded flex-shrink-0"></div>
                         </div>
                     </section>
 

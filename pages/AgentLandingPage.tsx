@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
     ContentAgentIcon, 
@@ -13,8 +13,10 @@ import {
     GlobeAltIcon, 
     DocumentCheckIcon,
     ArrowRightIcon,
-    CheckCircleIcon
+    CheckCircleIcon,
+    ChevronDownIcon
 } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const MiniCard: React.FC<{ 
     icon: React.ElementType, 
@@ -73,16 +75,38 @@ const PricingCard: React.FC<{ title: string, price: string, features: string[], 
     </div>
 );
 
+const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    return (
+        <div className="border-b border-gray-200 last:border-0">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex justify-between items-center py-5 text-left focus:outline-none group"
+            >
+                <span className={`text-lg font-semibold transition-colors ${isOpen ? 'text-blue-600' : 'text-gray-900 group-hover:text-blue-600'}`}>{question}</span>
+                <ChevronDownIcon className={`h-5 w-5 text-gray-500 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180 text-blue-600' : ''}`} />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100 pb-5' : 'max-h-0 opacity-0'}`}>
+                <p className="text-gray-600 leading-relaxed">{answer}</p>
+            </div>
+        </div>
+    );
+};
+
 const AgentLandingPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-white text-gray-800 font-sans selection:bg-blue-100 selection:text-blue-900">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'AI Agents' }]} />
+            </div>
             
             {/* Hero Section */}
             <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-blue-50 to-white">
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight max-w-5xl mx-auto">
-                            Empower your business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI Agents</span> that work tirelessly—scaling your success around the clock
+                            Empower your business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI Agents</span> that work tirelessly—scaling your success around the clock with results.
                         </h1>
                         <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto">
                             Deploy your autonomous workforce today. Scalable, efficient, and always on.
@@ -182,11 +206,11 @@ const AgentLandingPage: React.FC = () => {
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="mb-12">
-                         <span className="text-blue-600 font-bold tracking-wider uppercase text-sm bg-blue-100 px-3 py-1 rounded-full">Marketing Agent Capabilities</span>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-4">Your Growth Hacker in AI Form</h2>
+                         <span className="text-blue-600 font-bold tracking-wider uppercase text-sm bg-blue-100 px-3 py-1 rounded-full">MARKETING AGENT CAPABILITIES</span>
+                        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-4">Growth on Auto-Pilot</h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
                         <MiniCard 
                             icon={ChartBarIcon}
                             title="Meta Agent"
@@ -205,11 +229,27 @@ const AgentLandingPage: React.FC = () => {
                         />
                         <MiniCard 
                             icon={DocumentCheckIcon}
-                            title="Business Proposal Agent"
+                            title="Proposal Agent"
                             subtitle="Investor-ready, client-approved proposals"
                             description="Creates high-impact proposals that convert clients or buyers."
                             bullets={['Problem + solution breakdown', 'Numbers & ROI justification', 'Offer positioning for decision-makers']}
                             link="/agents/marketing/proposal"
+                        />
+                        <MiniCard 
+                            icon={ChartBarIcon}
+                            title="SEO Agent"
+                            subtitle="Dominate search engines."
+                            description="Optimizes your online presence for organic growth."
+                            bullets={['Keyword research & tracking', 'On-page optimization', 'Technical SEO audits']}
+                            link="/services/seo-smo" 
+                        />
+                        <MiniCard 
+                            icon={MegaphoneIcon}
+                            title="SMO Agent"
+                            subtitle="Social media optimization."
+                            description="Boosts your brand's social media presence and engagement."
+                            bullets={['Profile optimization', 'Content scheduling', 'Engagement analysis']}
+                            link="/services/seo-smo"
                         />
                     </div>
                 </div>
@@ -263,6 +303,26 @@ const AgentLandingPage: React.FC = () => {
                     </div>
                 </div>
             </section>
+
+            {/* FAQ Section */}
+            <section className="py-20 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
+                        <p className="mt-4 text-gray-600">Common questions about working with our AI Agents.</p>
+                    </div>
+                    <div className="space-y-2">
+                        <FAQItem question="What industries do you work with?" answer="Fashion, Retail, B2B, Healthcare, and Tech founders — basically anyone hungry to scale." />
+                        <FAQItem question="Do you offer customized service packs?" answer="Yepp. Every engagement starts with a growth plan tailored to goals, timelines, and budgets." />
+                        <FAQItem question="How fast can we start?" answer="On-boarding takes 3-5 days once the scope + commercials are locked." />
+                        <FAQItem question="Do you work on retainer or projects?" answer="Both. Long-term retainers for scale brands & sprint-based projects for quick wins." />
+                        <FAQItem question="How do you measure success?" answer="KPIs differ per service — leads, ROAS, CAC, CTR, revenue — your numbers, not fluffy vanity metrics." />
+                        <FAQItem question="Can you integrate all tools with our system?" answer="100% — from Shopify and ERP to CRM & HCM platforms — we make everything work together." />
+                        <FAQItem question="Do you provide content strategy too?" answer="Absolutely. Scripts, shotlists, brand books, and campaign messaging are our playground." />
+                    </div>
+                </div>
+            </section>
+
         </div>
     );
 };

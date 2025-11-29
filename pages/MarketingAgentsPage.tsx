@@ -1,12 +1,35 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ClockIcon, DollarIcon, ChartBarIcon } from '../constants/icons';
+import { ClockIcon, DollarIcon, ChartBarIcon, CheckCircleIcon } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const TabButton: React.FC<{ active: boolean, onClick: () => void, children: React.ReactNode }> = ({ active, onClick, children }) => (
     <button onClick={onClick} className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${active ? 'bg-blue-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}>
         {children}
     </button>
+);
+
+const AnimatedHighlightCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
+    <div className="group relative bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 ease-out h-full overflow-hidden">
+        {/* Glow Effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div className="relative z-10">
+            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 ease-out">
+                <Icon className="h-7 w-7 text-blue-600 group-hover:text-blue-700 transition-colors" />
+            </div>
+            
+            <h3 className="text-xl font-bold text-gray-900 mb-3 relative inline-block">
+                {title}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-500 group-hover:w-full"></span>
+            </h3>
+            
+            <p className="text-gray-600 text-base leading-relaxed group-hover:text-gray-700 transition-colors">
+                {description}
+            </p>
+        </div>
+    </div>
 );
 
 const FeatureCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
@@ -24,6 +47,29 @@ const Step: React.FC<{ number: string, title: string, description: string }> = (
             <h4 className="font-semibold text-gray-900">{title}</h4>
             <p className="text-gray-600">{description}</p>
         </div>
+    </div>
+);
+
+const MarketingPricingCard: React.FC<{ title: string, price: string, description: string, features: string[], highlighted?: boolean }> = ({ title, price, description, features, highlighted }) => (
+    <div className={`flex flex-col p-8 rounded-2xl border transition-all duration-300 ${highlighted ? 'bg-white border-blue-600 shadow-2xl scale-105 z-10' : 'bg-white border-gray-200 hover:shadow-lg'}`}>
+        {highlighted && <div className="text-blue-600 text-xs font-bold uppercase tracking-wide mb-2">Most Popular</div>}
+        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
+        <div className="mt-4 mb-2">
+            <span className="text-4xl font-extrabold text-gray-900">{price}</span>
+            {price !== 'Custom' && <span className="text-gray-500 font-medium">/mo</span>}
+        </div>
+        <p className="text-gray-500 text-sm mb-6">{description}</p>
+        <ul className="space-y-4 mb-8 flex-1">
+            {features.map((feature, idx) => (
+                <li key={idx} className="flex items-start text-sm text-gray-600">
+                    <CheckCircleIcon className="h-5 w-5 text-blue-500 mr-3 flex-shrink-0" />
+                    <span>{feature}</span>
+                </li>
+            ))}
+        </ul>
+        <Link to="/contact" className={`w-full py-3 px-6 rounded-lg font-bold text-center transition-colors ${highlighted ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-900'}`}>
+            Choose Plan
+        </Link>
     </div>
 );
 
@@ -104,18 +150,23 @@ const MarketingAgentsPage: React.FC = () => {
 
     return (
         <div className="bg-white text-gray-800">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'AI Agents', path: '/agents' }, { label: 'Marketing Agents' }]} />
+            </div>
+
             <section className="py-20 md:py-32 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
                     <div>
                         <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">Automate & Optimize Your Marketing with AI-Powered Agents</h1>
                         <p className="mt-6 text-lg text-gray-600">Harness the power of AI to manage your campaigns, engage your audience, and drive growth. Our specialized agents work tirelessly to maximize your ROI.</p>
-                        <div className="mt-8 flex space-x-4">
-                            <Link to="/contact" className="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-600 transition-transform transform hover:scale-105">
-                                Explore Agents
-                            </Link>
-                             <Link to="/contact" className="inline-block bg-transparent border-2 border-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg text-base hover:bg-gray-100 transition-colors">
-                                Get Started
-                            </Link>
+                        <div className="mt-8">
+                            <button 
+                                onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                                className="inline-block bg-blue-500 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-blue-600 transition-transform transform hover:scale-105"
+                            >
+                                See Plans
+                            </button>
                         </div>
                     </div>
                     <div className="flex justify-center">
@@ -124,16 +175,39 @@ const MarketingAgentsPage: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-20">
+            {/* High-Impact Animated Highlights Section */}
+            <section className="py-24 bg-white relative overflow-hidden">
+                {/* Subtle background decoration */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-blue-50/50 to-transparent rounded-full blur-3xl -z-10"></div>
+
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                     <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-3xl font-bold">The Future of Marketing is Autonomous</h2>
-                        <p className="mt-4 text-gray-600">Forwardworkx Marketing Agents are intelligent, automated systems designed to execute specific marketing functions with precision and efficiency, freeing up your team to focus on strategy and growth.</p>
+                    {/* Hero Block Centered */}
+                    <div className="text-center max-w-4xl mx-auto mb-20">
+                        <h2 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight mb-6">
+                            The Future of Marketing Is Autonomous
+                        </h2>
+                        <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed">
+                            Forwardworkx Marketing Agents are intelligent, automated systems designed to execute specific marketing functions with precision and efficiency, freeing up your team to focus on strategy and growth.
+                        </p>
                     </div>
-                    <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                        <FeatureCard icon={ClockIcon} title="24/7 Operation" description="Our agents are always active to monitor, optimize, and report on your campaigns." />
-                        <FeatureCard icon={DollarIcon} title="Cost Efficiency" description="Reduce operational costs and marketing efforts without increasing headcount." />
-                        <FeatureCard icon={ChartBarIcon} title="Data-Driven Decisions" description="Leverage real-time analytics to make faster decisions that boost performance." />
+
+                    {/* Animated Highlight Modules */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+                        <AnimatedHighlightCard 
+                            icon={ClockIcon}
+                            title="24/7 Operation"
+                            description="Our agents are always active to monitor, optimize, and report on your campaigns."
+                        />
+                        <AnimatedHighlightCard 
+                            icon={DollarIcon}
+                            title="Cost Efficiency"
+                            description="Reduce operational costs and marketing efforts without increasing headcount."
+                        />
+                        <AnimatedHighlightCard 
+                            icon={ChartBarIcon}
+                            title="Data-Driven Decisions"
+                            description="Leverage real-time analytics to make faster decisions that boost performance."
+                        />
                     </div>
                 </div>
             </section>
@@ -153,22 +227,60 @@ const MarketingAgentsPage: React.FC = () => {
                                         <Step key={step.number} {...step} />
                                     ))}
                                 </div>
-                                {(activeTab === 'SEO Agent' || activeTab === 'SMO Agent') && (
-                                    <div className="mt-8 pt-4">
+                                <div className="mt-8 pt-4">
+                                    {(activeTab === 'SEO Agent' || activeTab === 'SMO Agent') ? (
                                         <Link 
                                             to="/services/seo-smo" 
-                                            className="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg text-base hover:bg-blue-600 transition-transform transform hover:scale-105"
+                                            className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-base hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-md"
                                         >
-                                            {activeTab === 'SMO Agent' ? 'SMO Plans' : 'SEO Plans'}
+                                            See Plans
                                         </Link>
-                                    </div>
-                                )}
+                                    ) : (
+                                        <button 
+                                            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
+                                            className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-base hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-md"
+                                        >
+                                            See Plans
+                                        </button>
+                                    )}
+                                </div>
                             </div>
                             <div className="flex justify-center">
                                 <img src={activeAgent.image} alt={`${activeTab} visual`} className="rounded-lg shadow-2xl" />
                             </div>
                         </div>
                     )}
+                </div>
+            </section>
+
+            {/* Pricing Section */}
+            <section id="pricing" className="py-20 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-3xl font-bold text-gray-900">Simple, Scalable Pricing</h2>
+                        <p className="mt-4 text-gray-600">Choose the plan that fits your campaign volume and goals.</p>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8 items-start">
+                        <MarketingPricingCard
+                            title="Starter"
+                            price="$499"
+                            description="For startups managing single-channel campaigns."
+                            features={['1 Marketing Agent', 'Up to $5k Ad Spend', 'Basic Analytics Dashboard', 'Email Support']}
+                        />
+                        <MarketingPricingCard
+                            title="Growth"
+                            price="$1,299"
+                            description="For scaling brands optimizing across channels."
+                            highlighted={true}
+                            features={['3 Marketing Agents', 'Up to $20k Ad Spend', 'Real-time ROI Tracking', 'A/B Testing Automations', 'Priority Support']}
+                        />
+                        <MarketingPricingCard
+                            title="Enterprise"
+                            price="Custom"
+                            description="For large organizations with complex needs."
+                            features={['All Agents Unlocked', 'Unlimited Ad Spend', 'Custom Integrations (CRM/ERP)', 'Dedicated Account Manager', 'SSO & SLA']}
+                        />
+                    </div>
                 </div>
             </section>
 

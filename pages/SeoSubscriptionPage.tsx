@@ -9,6 +9,7 @@ import {
     ReportsIcon, 
     CheckCircleIcon 
 } from '../constants/icons';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const FeatureDetailCard: React.FC<{ icon: React.ElementType, title: string, description: string }> = ({ icon: Icon, title, description }) => (
     <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
@@ -47,6 +48,11 @@ const PricingCard: React.FC<{ plan: string, price: string, description: string, 
 const SeoSubscriptionPage: React.FC = () => {
     return (
         <div className="bg-white text-gray-800">
+            {/* Breadcrumbs */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+                <Breadcrumbs items={[{ label: 'Home', path: '/' }, { label: 'Services', path: '/services' }, { label: 'SEO & SMO Plans' }]} />
+            </div>
+
             {/* Hero Section */}
             <section className="relative py-32 md:py-48 text-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/seed/seobg/1200/800')" }}>
                 <div className="absolute inset-0 bg-gray-900/70"></div>
